@@ -32,6 +32,15 @@
   .course-card .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
   .course-card .dist{font-size:12px;font-weight:800;color:var(--muted);}
   .map-panel{position:sticky;top:16px;}
+  .map-wrap{position:relative;}
+  .map-pin{
+    position:absolute;width:26px;height:26px;
+    background:var(--g90);border:2px solid #fff;
+    border-radius:50% 50% 50% 0;transform:rotate(-45deg);
+    box-shadow:0 2px 6px rgba(20,40,70,.35);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .map-pin span{transform:rotate(45deg);color:#fff;font-size:11px;font-weight:800;}
   .map-note{font-size:11px;color:var(--muted);margin-top:8px;}
 
   /* empty state */
@@ -150,7 +159,13 @@
             </div>
           </div>
           <div class="map-panel">
-            <img src="map.png" alt="Map of course results around Wollongong with result pins" style="width:100%;display:block;border:1.5px solid var(--line);border-radius:10px;">
+            <div class="map-wrap">
+              <img src="map.png" alt="Map of course results around Wollongong with result pins" style="width:100%;display:block;border:1.5px solid var(--line);border-radius:10px;">
+              <div class="map-pin" style="left:20%;top:28%;"><span>1</span></div>
+              <div class="map-pin" style="left:33%;top:46%;"><span>2</span></div>
+              <div class="map-pin" style="left:24%;top:64%;"><span>3</span></div>
+              <div class="map-pin" style="left:41%;top:70%;"><span>4</span></div>
+            </div>
             <p class="map-note">Supporting context only — pins highlight the matching card. Collapsed by default on mobile; page fully usable without it.</p>
           </div>
         </div>
