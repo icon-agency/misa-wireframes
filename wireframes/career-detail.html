@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — Career Detail Wireframe (Lo-fi)</title>
+<link rel="stylesheet" href="wf.css">
+<link rel="stylesheet" href="referral.css">
+<link rel="stylesheet" href="nav2.css">
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER -->
+  <section>
+    <nav class="nav">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="nav-right">
+        <a class="quiz-btn" href="quiz.html">Find Your Fit</a>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+      <a class="quiz-btn-menu" href="quiz.html" style="margin:14px 0 0;">Find Your Fit</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero short">
+    <div class="placeholder">
+      <div class="hero-heading" style="font-size:36px;">Production Manager<span>(Food and Beverage)</span></div>
+    </div>
+  </section>
+
+  <!-- ROLE OVERVIEW -->
+  <section class="band tone-c" style="padding-bottom:0;">
+    <div class="article" style="padding:0 32px;">
+      <p class="body-text">Production Managers in the Food and Beverage sector play a crucial role in overseeing the daily operations of manufacturing facilities. They are responsible for coordinating production schedules, managing teams, and ensuring that products meet strict quality and safety standards. Their contribution is vital to maintaining the efficiency and profitability of food and beverage and meat and seafood manufacturers, which in turn supports local economies and satisfies consumer demands.</p>
+      <p class="body-text">Your role may include duties as follows:</p>
+      <ul>
+        <li>Oversee daily production operations and team performance.</li>
+        <li>Ensure compliance with food safety and quality standards.</li>
+        <li>Optimise production schedules and resource allocation.</li>
+        <li>Implement process improvements and efficiency measures.</li>
+        <li>Collaborate with cross-functional teams to meet production targets.</li>
+      </ul>
+      <p class="body-text">This career lets you play a key role in creating the food and drinks people enjoy every day. It's a mix of teamwork, problem-solving, and innovation — where your decisions directly shape quality, efficiency, and customer satisfaction.</p>
+
+      <h2>Vocational Education Training Options</h2>
+      <p class="body-text">Vocational education and training (VET) qualifications build the hands-on skills and knowledge needed for leadership roles on the production floor. Relevant VET qualifications include:</p>
+      <ul>
+        <li>Certificate IV in Food Processing (FBP40321)</li>
+        <li>Diploma of Food Science and Technology (FBP50121)</li>
+      </ul>
+
+      <h2>Salary Expectations</h2>
+      <p class="body-text">Median salary is $134,600</p>
+      <p class="body-text">This wage reflects VET qualification with typical experience in the field and excludes apprentice rates.</p>
+      <p class="body-text" style="font-size:12px;">Source: 2023 ABS Survey of Employee Earnings and Hours (<u>Jobs and Skills Australia website</u>), annualised weekly earnings for Production Managers.</p>
+
+      <!-- REFERRAL BLOCK · Variant 1 — full (Stage 2) -->
+      <div class="rb rb-full" style="margin-top:44px;">
+        <h3>Start your production pathway</h3>
+        <div class="rb-actions">
+          <div class="rb-primary-card">
+            <span class="rb-course">Certificate IV in Food Processing (FBP40321)</span>
+            <a class="rb-cta primary" href="course-finder.html">Find this course near you →</a>
+          </div>
+          <span class="rb-cta secondary">Get paid while you train — talk to a group training organisation →</span>
+          <a class="rb-cta tertiary" href="quiz.html">Not sure production's for you? Take the 60-second quiz →</a>
+        </div>
+      </div>
+    </div>
+    <div style="height:80px;"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

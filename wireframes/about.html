@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — About Wireframe (Lo-fi)</title>
+<link rel="stylesheet" href="wf.css">
+<link rel="stylesheet" href="referral.css">
+<link rel="stylesheet" href="nav2.css">
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER -->
+  <section>
+    <nav class="nav">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="nav-right">
+        <a class="quiz-btn" href="quiz.html">Find Your Fit</a>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+      <a class="quiz-btn-menu" href="quiz.html" style="margin:14px 0 0;">Find Your Fit</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="placeholder">
+      <div class="hero-heading">Powering the future of<span>Manufacturing</span></div>
+    </div>
+  </section>
+
+  <!-- CAMPAIGN INTRO (two-column text) -->
+  <section class="band tone-a">
+    <div class="wrap">
+      <div class="cards2" style="gap:40px;">
+        <p class="body-text" style="font-weight:700;">The Make It Manufacturing campaign is a new, government-supported pilot promotional initiative by the Manufacturing Industry Skills Alliance. Our goal is to inspire young people and those who support them to discover opportunities in Australian manufacturing. This site is your starting point to explore possible careers and stories.</p>
+        <div>
+          <p class="body-text" style="margin-bottom:14px;">The campaign has been built in direct response to the challenge highlighted in the 2024 Manufacturing Workforce Plan, which identified the urgent need to draw new entrants into Australia's manufacturing industry.</p>
+          <p class="body-text">Despite manufacturing's pivotal role in sectors such as clean energy, aerospace, and advanced technologies, outdated perceptions and a lack of awareness about secure, high-tech, and purpose-driven career opportunities persist, making it difficult to engage young people, parents, and educators.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGING PERCEPTIONS (text left / image right) -->
+  <section class="band tone-c" style="padding:0;">
+    <div class="wrap">
+      <div class="split">
+        <div class="textcol">
+          <h2>Challenging Perceptions</h2>
+          <p class="body-text">This initiative reframes manufacturing as a career driven by innovation and global impact, offering clear examples of diverse opportunities for youth. It shares inspiring stories of young people thriving in modern manufacturing and engages directly with students, parents, and career advisers fostering awareness, interest, and an understanding of training requirements.</p>
+        </div>
+        <div class="imgcol"><div class="placeholder"><span class="tag">Photo</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PLAN (image left / text right) -->
+  <section class="band tone-c" style="padding:0;">
+    <div class="wrap">
+      <div class="split">
+        <div class="imgcol"><div class="placeholder"><span class="tag">Photo</span></div></div>
+        <div class="textcol" style="padding:56px 0 56px 48px;">
+          <h2>The Plan</h2>
+          <p class="body-text">This campaign aligns with Australian Government guidelines for funded initiatives, ensuring transparency, accountability, and impact. It is built on robust research to guide development, track progress, and measure outcomes.</p>
+          <p class="body-text">An integrated media strategy combines digital, TV, outdoor, PR, and events to maximise reach, while strategic public affairs amplify earned media coverage. Comprehensive evaluation and reporting will assess effectiveness and the campaign's success in shifting perceptions of manufacturing careers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE (text left / image right) -->
+  <section class="band tone-c" style="padding:0;">
+    <div class="wrap">
+      <div class="split">
+        <div class="textcol">
+          <h2>Who We Are</h2>
+          <p class="body-text">The Manufacturing Industry Skills Alliance leads this pilot promotional campaign as Australia's industry-owned and led Jobs and Skills Council for manufacturing. We work with employers, unions, government, and VET providers to address workforce challenges—building a strong, innovative, and adaptive industry.</p>
+          <p class="body-text">Learn more: <u>www.manufacturingalliance.org.au</u></p>
+        </div>
+        <div class="imgcol"><div class="placeholder"><span class="tag">Photo</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT JOBS AND SKILLS COUNCILS (image left / text right) -->
+  <section class="band tone-c" style="padding:0;">
+    <div class="wrap">
+      <div class="split">
+        <div class="imgcol"><div class="placeholder"><span class="tag">Photo</span></div></div>
+        <div class="textcol" style="padding:56px 0 56px 48px;">
+          <h2>About Jobs and Skills Councils</h2>
+          <p class="body-text">Jobs and Skills Councils (JSCs) connect industry voices with vocational training, identifying skill needs, creating career maps, and developing training products that address workforce demands. By supporting collaboration between businesses and training providers, JSCs help ensure Australia's workforce is prepared for change, and training adapts to evolving industry priorities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACKNOWLEDGEMENTS -->
+  <section class="band tone-c" style="padding-top:0;">
+    <div class="article" style="padding:0 32px;">
+      <h2 style="font-size:26px;margin-top:0;">Acknowledgements</h2>
+      <p class="body-text">We are an industry-owned and industry-led initiative, and acknowledge the contribution of Burra Foods, Hargo Engineering, Bombardier, and Sutton Tools for generously opening their doors to us, allowing our team to film and photograph onsite and feature their talented staff in our TV Commercial.</p>
+      <p class="body-text">We also extend our sincere thanks to all the participants from the manufacturing sector who shared their insights and dedicated their time to help us shape this campaign. Your collaboration and support have been instrumental in highlighting the strength and innovation that define our industry.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band tone-f faq">
+    <div class="wrap">
+      <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><span>What do jobs in manufacturing actually involve?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Is manufacturing still dirty, dangerous, or repetitive?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What kind of skills or education do I need?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Is manufacturing a good, stable career? Will I earn a decent salary?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What is the future of manufacturing with automation and robotics?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Are there opportunities for advancement and growth?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What is it actually like to work in a manufacturing facility?</span><span class="chev">⌄</span></div>
+        <div class="rb-micro">Still deciding? <a href="quiz.html">Take the quiz →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

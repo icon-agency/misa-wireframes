@@ -1,0 +1,145 @@
+/* MISA Stage 2 wireframe kit — blue/shades variant.
+   Imports the greyscale kit and re-tints it; adds Stage 2 components. */
+@import url("wf.css");
+
+:root{
+  --ink:#1e2f42;
+  --line:#7f93ad;
+  --line-strong:#46607b;
+  --muted:#5d7189;
+  --g05:#f6f9fc;
+  --g10:#edf2f8;
+  --g15:#e2eaf3;
+  --g20:#d8e2ee;
+  --g30:#c5d3e4;
+  --g40:#adc0d6;
+  --g60:#8199b4;
+  --g80:#4f6883;
+  --g90:#243b55;
+}
+body{background:#c9d3df;}
+.page{background:#fdfeff;box-shadow:0 0 0 1px #a9b8ca, 0 20px 60px rgba(20,40,70,.18);}
+.footer-top,.footer-bottom{border-color:#3d5674;}
+.footer .plh{background:#33496183;border-color:#4e688a;}
+.footer-mid{border-color:#3d5674;}
+
+/* ============ STAGE 2 COMPONENTS ============ */
+
+.eyebrow{
+  font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;
+}
+
+.chip{
+  display:inline-flex;align-items:center;
+  border:1px solid var(--line-strong);border-radius:14px;
+  padding:3px 10px;font-size:11px;font-weight:800;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--g80);background:#fff;
+}
+.chip.solid{background:var(--g90);color:#fff;border-color:var(--g90);}
+
+/* career match card */
+.career-card{
+  background:#fff;border:1.5px solid var(--line);border-radius:10px;
+  overflow:hidden;display:flex;flex-direction:column;
+}
+.career-card .cc-img{height:120px;}
+.career-card .cc-img .placeholder{height:100%;border:none;border-radius:0;border-bottom:1px solid var(--line);}
+.career-card .cc-body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.career-card h3{font-size:16px;line-height:1.15;}
+.career-card .one-liner{color:var(--g80);font-size:14px;}
+.career-card .chips{display:flex;gap:6px;flex-wrap:wrap;}
+.career-card .btn{margin-top:auto;align-self:flex-start;padding:10px 18px;font-size:11px;}
+
+/* course card */
+.course-card{
+  background:#fff;border:1.5px solid var(--line);border-radius:10px;
+  padding:16px;display:flex;flex-direction:column;gap:8px;
+}
+.course-card h3{font-size:15px;line-height:1.2;text-transform:none;letter-spacing:0;}
+.course-card .provider{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);}
+.course-card .meta{font-size:13px;color:var(--g80);}
+.course-card .btn{align-self:flex-start;padding:10px 18px;font-size:11px;}
+.course-card.referral{background:var(--g15);border-style:dashed;}
+.course-card .avail-note{font-size:10.5px;color:var(--muted);}
+
+/* Illawarra insert */
+.illawarra-banner{
+  background:var(--g90);color:#fff;border-radius:10px;
+  padding:22px 20px;display:flex;flex-direction:column;gap:10px;
+}
+.illawarra-banner h3{font-size:17px;color:#fff;}
+.illawarra-banner p{color:var(--g30);font-size:14px;}
+.illawarra-banner .btn{background:#fff;border-color:#fff;color:var(--ink);align-self:flex-start;padding:10px 18px;font-size:11px;}
+
+/* email capture */
+.email-capture{
+  border:1.5px solid var(--line);border-radius:10px;background:var(--g10);
+  padding:22px 20px;
+}
+.email-capture h3{font-size:17px;margin-bottom:6px;}
+.email-capture p{font-size:14px;color:var(--g80);margin-bottom:14px;}
+.field-row{display:flex;gap:8px;flex-wrap:wrap;}
+.input{
+  flex:1;min-width:150px;
+  border:1.5px solid var(--line-strong);border-radius:24px;background:#fff;
+  padding:11px 16px;font-size:14px;color:var(--muted);
+  display:flex;align-items:center;
+}
+.microcopy{font-size:11px;color:var(--muted);margin-top:10px;display:block;}
+.microcopy u{cursor:pointer;}
+.success-note{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:12px;padding:8px 14px;border-radius:8px;
+  background:#fff;border:1.5px solid var(--line-strong);
+  font-size:13px;font-weight:700;color:var(--ink);
+}
+
+/* Template 6 — story rail/grid card (poster/portrait, name, role, location, persona chip) */
+.t6-card{
+  background:#fff;border:1.5px solid var(--line);border-radius:10px;
+  overflow:hidden;display:flex;flex-direction:column;
+  text-decoration:none;color:var(--ink);
+}
+.t6-card .t6-img{position:relative;height:230px;}
+.t6-card .t6-img .placeholder{position:absolute;inset:0;border:none;border-radius:0;border-bottom:1px solid var(--line);}
+.t6-card .t6-img .persona-chip{
+  position:absolute;top:10px;left:10px;z-index:2;
+  background:#fff;border:1.5px solid var(--line-strong);border-radius:14px;
+  padding:3px 10px;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--g80);
+}
+.t6-card .t6-img .flag-chip{
+  position:absolute;bottom:10px;right:10px;z-index:2;
+  background:var(--g90);color:#fff;border-radius:14px;
+  padding:3px 10px;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+}
+.t6-card .t6-img .play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+  width:54px;height:54px;border-radius:50%;
+  background:#fff;border:1.5px solid var(--line-strong);
+  display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--ink);
+}
+.t6-card .t6-body{padding:14px 16px;display:flex;flex-direction:column;gap:3px;flex:1;}
+.t6-card .t6-name{font-weight:800;text-transform:uppercase;font-size:14px;letter-spacing:.02em;}
+.t6-card .t6-meta{font-size:12px;color:var(--muted);font-weight:700;}
+.t6-card .t6-quote{font-size:13px;font-style:italic;color:var(--g80);margin-top:8px;}
+.t6-card .btn{margin-top:12px;align-self:flex-start;padding:9px 16px;font-size:11px;}
+
+/* pull-quote story card */
+.pullquote-card{
+  background:#fff;border:1.5px solid var(--line);border-radius:10px;
+  overflow:hidden;
+}
+.pullquote-card .pq-img{height:180px;}
+.pullquote-card .pq-img .placeholder{height:100%;border:none;border-radius:0;border-bottom:1px solid var(--line);}
+.pullquote-card .pq-body{padding:18px;}
+.pullquote-card .quote{font-size:16px;font-style:italic;color:var(--g80);line-height:1.45;margin-bottom:12px;}
+.pullquote-card .who{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;}
+.pullquote-card .who small{display:block;color:var(--muted);font-weight:700;}
+.pullquote-card .btn{margin:0 18px 18px;padding:10px 18px;font-size:11px;}
+
+/* text link */
+.text-link{
+  font-size:13px;font-weight:700;color:var(--g80);
+  text-decoration:underline;cursor:pointer;background:none;border:none;
+}

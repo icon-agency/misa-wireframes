@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — Quiz Wireframe (Stage 2 amendments · Lo-fi)</title>
+<link rel="stylesheet" href="wf.css">
+<link rel="stylesheet" href="nav2.css">
+<style>
+  .quiz-step{display:none;}
+  .quiz-step.show{display:block;}
+  .qnum{display:inline-flex;width:22px;height:22px;border:1px solid var(--line-strong);border-radius:4px;align-items:center;justify-content:center;font-size:12px;font-weight:800;margin-right:8px;}
+  .qhint{font-size:11px;color:var(--muted);margin:6px 0 18px;}
+  .option{cursor:pointer;}
+  .option.sel{border-width:2.5px;background:var(--g20);}
+  .option.sel .key{background:var(--g90);color:#fff;border-color:var(--g90);}
+  .stepnav{display:flex;justify-content:center;gap:10px;margin-top:26px;}
+  .backlink{position:absolute;top:14px;left:16px;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;}
+
+  /* ===== Stage 2 amendments — blue ===== */
+  :root{
+    --b-bg:#e8f1fb;
+    --b-tint:#d7e8fa;
+    --b-line:#4a90d9;
+    --b-ink:#173a5e;
+    --b-solid:#24548c;
+  }
+  .embed-frame{position:relative;}
+  .embed-frame.blue{background:var(--b-bg);border-color:var(--b-line);}
+  .blue .q,.blue h2{color:var(--b-ink);}
+  .btn.blue-solid{background:var(--b-solid);border-color:var(--b-solid);color:#fff;}
+  .progress-chip{
+    position:absolute;top:14px;right:16px;
+    border:1.5px solid var(--b-line);border-radius:14px;background:#fff;
+    padding:3px 10px;font-size:11px;font-weight:800;color:var(--b-ink);
+  }
+  .pc-input{
+    border:2px solid var(--b-line);border-radius:24px;background:#fff;
+    padding:13px 18px;font-size:16px;color:var(--muted);
+    display:flex;align-items:center;max-width:220px;margin:0 auto 4px;
+    text-align:left;
+  }
+  .pc-input.error{border-color:#8a4a4a;background:#f5ecec;}
+  .pc-input.filled{color:var(--b-ink);font-weight:700;}
+  .error-msg{font-size:12.5px;font-weight:700;color:#8a4a4a;margin:6px 0 0;}
+  .skip-link{
+    display:inline-block;font-size:14px;font-weight:700;color:var(--b-ink);
+    text-decoration:underline;cursor:pointer;margin-top:14px;
+  }
+  .privacy-micro{font-size:11px;color:var(--muted);margin-top:14px;}
+  .spinner{
+    width:56px;height:56px;border-radius:50%;margin:0 auto 18px;
+    border:4px dashed var(--b-line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:10px;color:var(--b-ink);font-weight:700;
+  }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER -->
+  <section>
+    <nav class="nav">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+
+  <!-- QUIZ FLOW — native rebuild at /quiz/ -->
+  <section class="band tone-b" style="min-height:620px;">
+    <div class="wrap">
+      <p class="qhint" style="text-align:center;margin:0 0 12px;">Header note (A2): the nav "Find Your Fit" button is suppressed within the quiz flow.</p>
+      <div class="embed-frame blue">
+
+        <!-- SCREEN 1: INTRO (light rework · updated) -->
+        <div class="quiz-step show" id="step0">
+          <div class="q" style="font-size:26px;">Find your fit</div>
+          <p class="body-text" style="font-weight:700;max-width:440px;margin:0 auto 8px;">Answer 4 quick questions to see where a career in manufacturing could take you. Takes about 60 seconds.</p>
+          <p class="qhint" style="margin-bottom:22px;">This isn't career advice — think of it as a starting point.</p>
+          <span class="btn blue-solid" onclick="go(1)">Start</span>
+        </div>
+
+        <!-- SCREEN 2: RESTYLED Q1 (reference — Q2–Q4 follow the same pattern) -->
+        <div class="quiz-step" id="step1">
+          <span class="backlink" onclick="go(0)">‹ Back</span>
+          <span class="progress-chip">1 of 5</span>
+          <div class="q"><span class="qnum">1</span>What best describes you?*</div>
+          <p class="qhint">*compulsory question</p>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">A</span>I like working with my hands</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">B</span>I like designing or drawing</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">C</span>I love tech and robots</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">D</span>I enjoy solving problems</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">E</span>I'm good at planning and organising</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">F</span>I want to make a difference in the world</div>
+          <div class="stepnav"><span class="btn blue-solid" onclick="go(2)">OK</span></div>
+          <p class="qhint" style="margin-top:16px;">Options are proper form controls · 44px min tap targets · selected state ≠ colour alone</p>
+        </div>
+
+        <!-- Q2–Q4: unchanged copy, same restyle as Q1 -->
+        <div class="quiz-step" id="step2">
+          <span class="backlink" onclick="go(1)">‹ Back</span>
+          <span class="progress-chip">2 of 5</span>
+          <div class="q"><span class="qnum">2</span>What kind of workplace sounds exciting to you?*</div>
+          <p class="qhint">*compulsory question · Choose as many as you like</p>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">A</span>A busy workshop</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">B</span>A high-tech lab</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">C</span>A creative design studio</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">D</span>A quiet, organised office</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">E</span>A research space where I can solve problems</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">F</span>A place where my work impacts others</div>
+          <div class="stepnav"><span class="btn blue-solid" onclick="go(3)">OK</span></div>
+        </div>
+        <div class="quiz-step" id="step3">
+          <span class="backlink" onclick="go(2)">‹ Back</span>
+          <span class="progress-chip">3 of 5</span>
+          <div class="q"><span class="qnum">3</span>What's most important to you when thinking about a career?*</div>
+          <p class="qhint">*compulsory question · Choose as many as you like</p>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">A</span>Building or making things</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">B</span>Creativity and design</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">C</span>Using technology</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">D</span>Solving real-world issues</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">E</span>Planning and managing systems</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">F</span>Helping people or the planet</div>
+          <div class="stepnav"><span class="btn blue-solid" onclick="go(4)">OK</span></div>
+        </div>
+        <div class="quiz-step" id="step4">
+          <span class="backlink" onclick="go(3)">‹ Back</span>
+          <span class="progress-chip">4 of 5</span>
+          <div class="q"><span class="qnum">4</span>Which of these excites you most?*</div>
+          <p class="qhint">*compulsory question</p>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">A</span>Seeing a machine I fixed working again</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">B</span>Sketching or prototyping something new</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">C</span>Programming a robot or system</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">D</span>Improving how a process works</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">E</span>Creating order out of chaos</div>
+          <div class="option" onclick="this.classList.toggle('sel')"><span class="key">F</span>Knowing my work helps someone</div>
+          <div class="stepnav"><span class="btn blue-solid" onclick="go(5)">OK</span></div>
+        </div>
+
+        <!-- SCREEN 3: POSTCODE STEP (new · replaces old confirmation screen) -->
+        <div class="quiz-step" id="step5">
+          <span class="backlink" onclick="go(4)">‹ Back</span>
+          <span class="progress-chip">5 of 5</span>
+          <div class="q" style="font-size:24px;">Where are you?</div>
+          <p class="body-text" style="max-width:400px;margin:0 auto 20px;">Add your postcode and we'll show real courses and opportunities near you.</p>
+          <div class="pc-input">e.g. 2500</div>
+          <p class="qhint">numeric keypad · autocomplete enabled</p>
+          <div class="stepnav" style="margin-top:14px;"><span class="btn blue-solid" onclick="go(6)">Show my result</span></div>
+          <span class="skip-link" onclick="go(6)">Skip — show my result anyway</span>
+          <p class="privacy-micro">Only used to find courses near you. <u>Privacy note</u></p>
+        </div>
+
+        <!-- SCREEN 4: RESULT TRANSITION (micro-moment) -->
+        <div class="quiz-step" id="step6">
+          <div class="spinner">anim</div>
+          <div class="q" style="font-size:22px;">Working out your fit…</div>
+          <p class="qhint">Under 1.5s · masks the page load, doesn't add to it · lands on /quiz/creative-designer/</p>
+          <div class="stepnav"><a class="btn blue-solid" href="persona-results.html">→ Persona results page</a></div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script>
+function go(n){
+  document.querySelectorAll('.quiz-step').forEach(function(s){s.classList.remove('show');});
+  document.getElementById('step'+n).classList.add('show');
+}
+</script>
+</body>
+</html>

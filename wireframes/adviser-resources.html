@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — Adviser Resources Wireframe (Stage 2 · Lo-fi)</title>
+<link rel="stylesheet" href="wf2.css">
+<link rel="stylesheet" href="referral.css">
+<link rel="stylesheet" href="nav2.css">
+<style>
+  /* featured quiz-share card */
+  .share-card{
+    background:#fff;border:1.5px solid var(--line-strong);border-radius:12px;
+    padding:28px;display:grid;grid-template-columns:1fr 170px;gap:28px;align-items:center;
+  }
+  .share-card h2{font-size:22px;margin-bottom:8px;}
+  .share-card .copy-row{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 10px;}
+  .share-card .input{flex:1;min-width:200px;font-weight:700;color:var(--ink);}
+  .qr-slot{width:170px;height:170px;}
+  .qr-slot .placeholder{height:100%;}
+
+  /* download grid */
+  .dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .dl-card{
+    background:#fff;border:1.5px solid var(--line);border-radius:10px;
+    padding:20px;display:flex;flex-direction:column;gap:8px;
+  }
+  .dl-card .dl-icon{
+    width:40px;height:40px;border:2px solid var(--line-strong);border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:9px;font-weight:800;letter-spacing:.04em;color:var(--g80);text-transform:uppercase;
+  }
+  .dl-card h3{font-size:15px;line-height:1.2;text-transform:none;letter-spacing:0;}
+  .dl-card .one-liner{font-size:13px;color:var(--g80);flex:1;}
+  .dl-card .filemeta{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+  .dl-card .btn{align-self:flex-start;padding:9px 16px;font-size:11px;}
+
+  /* density toggle (wireframe review control) */
+  .density-toggle{display:flex;justify-content:flex-end;gap:8px;margin-bottom:22px;}
+  .density-toggle .fchip{
+    border:1.5px solid var(--line-strong);border-radius:18px;background:#fff;
+    padding:6px 14px;font-size:11px;font-weight:700;color:var(--g80);cursor:pointer;
+  }
+  .density-toggle .fchip.on{background:var(--g90);color:#fff;border-color:var(--g90);}
+  .grid-state{display:none;}
+  .grid-state.show{display:block;}
+  .dl-grid.launch{grid-template-columns:repeat(3,1fr);}
+
+  /* adviser email capture */
+  .email-capture .field-row .input{min-width:140px;}
+
+  @media(max-width:820px){
+    .share-card{grid-template-columns:1fr;}
+    .qr-slot{margin:0 auto;}
+    .dl-grid,.dl-grid.launch{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER -->
+  <section>
+    <nav class="nav">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="nav-right">
+        <a class="quiz-btn" href="quiz.html">Find Your Fit</a>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+      <a class="quiz-btn-menu" href="quiz.html" style="margin:14px 0 0;">Find Your Fit</a>
+    </div>
+  </div>
+
+  <!-- 1. HEADER -->
+  <section class="band tone-a" style="padding:44px 0;">
+    <div class="wrap">
+      <h1 style="font-size:32px;margin-bottom:10px;">Resources for your classroom</h1>
+      <p class="body-text" style="max-width:560px;">Everything you need to bring manufacturing careers into your careers sessions — free, curriculum-aware, ready to use.</p>
+    </div>
+  </section>
+
+  <!-- 2. FEATURED ACTION — SHAREABLE QUIZ -->
+  <section class="band tone-c" style="padding-top:40px;padding-bottom:0;">
+    <div class="wrap">
+      <div class="share-card">
+        <div>
+          <h2>Send the quiz to your students</h2>
+          <p class="body-text">Takes students 60 seconds. Results include real courses near them.</p>
+          <div class="copy-row">
+            <span class="input">makeitmanufacturing.com.au/quiz</span>
+            <span class="btn solid">Copy link</span>
+          </div>
+          <p class="footnote" style="font-size:11px;color:var(--muted);">Adviser-source UTM — classroom-originated student sessions are attributable.</p>
+        </div>
+        <div class="qr-slot"><div class="placeholder"><span class="tag">QR → quiz</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. DOWNLOAD GRID -->
+  <section class="band tone-c">
+    <div class="wrap">
+      <div class="density-toggle">
+        <span class="fchip" id="d3" onclick="density(3)">Launch state · 3 items</span>
+        <span class="fchip on" id="d6" onclick="density(6)">Full grid · 6 items</span>
+      </div>
+
+      <!-- LAUNCH STATE: 3 items -->
+      <div class="grid-state" id="state3">
+        <div class="dl-grid launch">
+          <div class="dl-card">
+            <div class="dl-icon">PPT</div>
+            <h3>Careers session slide deck</h3>
+            <p class="one-liner">A ready-to-run 20-minute session on modern manufacturing careers.</p>
+            <span class="filemeta">PPT / Google Slides · 9 MB</span>
+            <span class="btn">Download ↓</span>
+          </div>
+          <div class="dl-card">
+            <div class="dl-icon">PDF</div>
+            <h3>Find Your Fit classroom poster</h3>
+            <p class="one-liner">A3 poster with a QR code straight to the quiz.</p>
+            <span class="filemeta">A3 PDF · 2 MB</span>
+            <span class="btn">Download ↓</span>
+          </div>
+          <div class="dl-card">
+            <div class="dl-icon">PDF</div>
+            <h3>Parent handout</h3>
+            <p class="one-liner">For sending home: manufacturing pathways explained in one page.</p>
+            <span class="filemeta">PDF · 1 MB</span>
+            <span class="btn">Download ↓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FULL GRID: 6 items -->
+      <div class="grid-state show" id="state6">
+        <div class="dl-grid">
+          <div class="dl-card">
+            <div class="dl-icon">PPT</div>
+            <h3>Careers session slide deck</h3>
+            <p class="one-liner">A ready-to-run 20-minute session on modern manufacturing careers.</p>
+            <span class="filemeta">PPT / Google Slides · 9 MB</span>
+            <span class="btn">Download ↓</span>
+          </div>
+          <div class="dl-card">
+            <div class="dl-icon">PDF</div>
+            <h3>Career fact sheets</h3>
+            <p class="one-liner">One per job page, auto-generated from the same data as the site.</p>
+            <span class="filemeta">PDF set (ZIP) · 14 MB</span>
+            <span class="btn">Download ↓</span>
+          </div>
+          <div class="dl-card">
+            <div class="dl-icon">PDF</div>
+            <h3>Find Your Fit classroom poster</h3>
+            <p class="one-liner">A3 poster with a QR code straight to the quiz.</p>
+            <span class="filemeta">A3 PDF · 2 MB</span>
+            <span class="btn">Download ↓</span>
+          </div>
+          <div class="dl-card">
+            <div class="dl-icon">PDF</div>
+            <h3>Parent handout</h3>
+            <p class="one-liner">For sending home: manufacturing pathways explained in one page.</p>
+            <span class="filemeta">PDF · 1 MB</span>
+            <span class="btn">Download ↓</span>
+          </div>
+          <div class="dl-card">
+            <div class="dl-icon">MP4</div>
+            <h3>Video pack</h3>
+            <p class="one-liner">Story films + vertical cuts — download or embed links.</p>
+            <span class="filemeta">MP4 / embed · fed by story pages</span>
+            <span class="btn">Get links ↓</span>
+          </div>
+          <div class="dl-card">
+            <div class="dl-icon">WEB</div>
+            <h3>Industry snapshots</h3>
+            <p class="one-liner">Links to the new industry web pages — not the old PDFs.</p>
+            <span class="filemeta">Web pages · always current</span>
+            <a class="btn" href="industry-page.html">View pages →</a>
+          </div>
+        </div>
+      </div>
+      <p class="footnote" style="font-size:11px;color:var(--muted);margin-top:14px;">All downloads GA4-tracked by item · accessible formats.</p>
+    </div>
+  </section>
+
+  <!-- 4. EMAIL CAPTURE — ADVISER VARIANT -->
+  <section class="band tone-a">
+    <div class="wrap">
+      <div class="email-capture" style="background:#fff;">
+        <div class="ec-txt" style="max-width:340px;">
+          <h3>Get new resources as we add them</h3>
+          <p style="margin-bottom:0;">No spam — just new classroom material, a few times a year.</p>
+          <span class="microcopy">Syncs to HubSpot with an adviser tag.</span>
+        </div>
+        <div class="field-row" style="flex:1;min-width:320px;">
+          <span class="input">you@school.edu.au</span>
+          <span class="input">School</span>
+          <span class="input" style="max-width:110px;">State ⌄</span>
+          <span class="btn solid">Sign up</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. REFERRAL BLOCK · Variant 2 -->
+  <section class="band tone-c" style="padding-top:0;">
+    <div class="wrap">
+      <div class="rb rb-compact">
+        <h3>Planning excursions or guest speakers?</h3>
+        <div class="rb-actions">
+          <a class="rb-cta primary" href="#">Email the MISA team →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script>
+function density(n){
+  document.getElementById('state3').classList.toggle('show', n===3);
+  document.getElementById('state6').classList.toggle('show', n===6);
+  document.getElementById('d3').classList.toggle('on', n===3);
+  document.getElementById('d6').classList.toggle('on', n===6);
+}
+</script>
+</body>
+</html>

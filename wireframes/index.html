@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA Wireframes — Sitemap Index</title>
+<link rel="stylesheet" href="wf.css">
+<style>
+  .idx{max-width:960px;margin:0 auto;padding:56px 40px 80px;}
+  .idx h1{font-size:22px;color:#23272c;margin-bottom:6px;}
+  .idx p.sub{color:#6b7580;font-size:13px;margin-bottom:28px;}
+
+  /* legend */
+  .legend{display:flex;gap:28px;align-items:center;margin-bottom:40px;flex-wrap:wrap;}
+  .legend .key{display:flex;gap:10px;align-items:center;font-size:13px;color:#3f474f;}
+  .legend .swatch{width:22px;height:22px;border-radius:6px;}
+  .swatch.existing{background:#efece6;border:1px solid #c9c2b4;}
+  .swatch.stage2{background:#d7e8fa;border:1.5px solid #4a90d9;}
+  .legend .bluenote-key{color:#2f7cc9;font-weight:700;}
+
+  /* tree */
+  .tree{display:flex;flex-direction:column;gap:14px;}
+  .node{display:flex;align-items:center;gap:18px;position:relative;}
+  .node .box{
+    display:flex;align-items:center;
+    min-width:340px;max-width:420px;flex:none;
+    background:#efece6;color:#23272c;
+    border-radius:10px;padding:15px 22px;
+    font-size:16px;font-weight:600;
+    text-decoration:none;
+    border:1.5px solid #c9c2b4;
+  }
+  a.box:hover{outline:2px solid #23272c;}
+  .node .box.stage2{background:#d7e8fa;border-color:#4a90d9;color:#173a5e;}
+  .node .box.partial{border-style:dashed;}
+  .node .box.unbuilt{opacity:.5;cursor:default;}
+  .node .box .todo{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#173a5e;opacity:.7;padding-left:14px;}
+  .node .note{font-size:13.5px;color:#8a929b;}
+  .node .note.blue{color:#2f7cc9;font-weight:700;}
+
+  /* indent levels with dashed connectors */
+  .lvl1{margin-left:56px;}
+  .lvl2{margin-left:112px;}
+  .lvl1::before,.lvl2::before{
+    content:"";position:absolute;left:-28px;top:50%;width:24px;height:0;
+    border-top:1.5px dashed #b3bac2;
+  }
+  .lvl1::after,.lvl2::after{
+    content:"";position:absolute;left:-28px;bottom:50%;top:-40px;width:0;
+    border-left:1.5px dashed #b3bac2;
+  }
+  @media(max-width:760px){
+    .node{flex-wrap:wrap;gap:8px;}
+    .node .box{min-width:0;width:100%;max-width:none;}
+    .lvl1{margin-left:24px;}
+    .lvl2{margin-left:48px;}
+    .lvl1::before,.lvl2::before{left:-16px;width:12px;}
+    .lvl1::after,.lvl2::after{left:-16px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="idx">
+  <h1>Make It Manufacturing — Wireframe Index</h1>
+  <p class="sub">Stage 1 (greyscale) + Stage 2 (blue) wireframes, arranged per the Stage 2 sitemap / IA. Click a box to open its wireframe.</p>
+
+  <div class="legend">
+    <span class="key"><span class="swatch existing"></span> Existing page</span>
+    <span class="key"><span class="swatch stage2"></span> New in stage 2</span>
+    <span class="key"><span class="swatch stage2" style="border-style:dashed;"></span> Partially drawn</span>
+    <span class="key"><span class="bluenote-key">blue note</span>&nbsp;= existing page enhanced</span>
+  </div>
+
+  <div class="tree">
+
+    <div class="node">
+      <a class="box" href="homepage.html">Home</a>
+    </div>
+
+    <div class="node lvl1">
+      <a class="box" href="quiz.html">Find your fit quiz</a>
+      <span class="note blue">native rebuild + postcode step · 5 screens: intro, Q1 ref, postcode, transition</span>
+    </div>
+
+    <div class="node lvl2">
+      <a class="box stage2" href="persona-results.html">Persona results pages</a>
+      <span class="note">6–8 landing pages, referrals out · suppresses nav quiz button</span>
+    </div>
+
+    <div class="node lvl1">
+      <a class="box" href="young-people.html">Young people</a>
+    </div>
+
+    <div class="node lvl1">
+      <a class="box" href="parents-caregivers.html">Parents &amp; caregivers</a>
+    </div>
+
+    <div class="node lvl1">
+      <a class="box" href="teachers-career-advisers.html">Teachers &amp; career advisers</a>
+    </div>
+
+    <div class="node lvl2">
+      <a class="box stage2" href="adviser-resources.html">Adviser resources</a>
+      <span class="note">downloadable kits, fact sheets · shareable quiz QR</span>
+    </div>
+
+    <div class="node lvl1">
+      <a class="box" href="careers-industries.html">Careers &amp; industries</a>
+    </div>
+
+    <div class="node lvl2">
+      <a class="box" href="career-detail.html">Job detail pages</a>
+      <span class="note blue">+ referral blocks, more careers · Welder = retrofit reference mock</span>
+    </div>
+
+    <div class="node lvl2">
+      <a class="box stage2" href="industry-page.html">Industry pages</a>
+      <span class="note">PDFs converted to web pages · Food &amp; Beverage mock</span>
+    </div>
+
+    <div class="node lvl1">
+      <a class="box" href="take-the-next-step.html">Take the next step</a>
+      <span class="note blue">on-site conversion, not hand-off · rebuilt around course finder</span>
+    </div>
+
+    <div class="node lvl2">
+      <a class="box stage2" href="course-finder.html">Course finder</a>
+      <span class="note">TAFE search by location</span>
+    </div>
+
+    <div class="node lvl1">
+      <a class="box stage2" href="stories-index.html">Success stories</a>
+      <span class="note">/stories/ — index grid at 3 and 11 stories</span>
+    </div>
+
+    <div class="node lvl2">
+      <a class="box partial" href="story.html">Person's story <span class="todo">retrofit drawn · Tier 1 video to come</span></a>
+      <span class="note">Tier 1 video (Jess) · Tier 3 retrofit (Chloe)</span>
+    </div>
+
+    <div class="node lvl1">
+      <a class="box stage2" href="illawarra.html">Illawarra sub-site</a>
+      <span class="note">/illawarra/ — embedded, tagged · Centre of Excellence in hero · single consolidated brief · events module within the page: 3 / zero / 10-event states, always mocked in page context (<a href="providers-open-days.html" style="color:inherit;">card variants</a>)</span>
+    </div>
+
+    <div class="node lvl1">
+      <a class="box" href="about.html">About</a>
+    </div>
+
+  </div>
+</div>
+</div>
+</body>
+</html>

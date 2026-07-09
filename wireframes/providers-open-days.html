@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — Event Card Component Sheet (Stage 2 · Lo-fi)</title>
+<link rel="stylesheet" href="wf2.css">
+<link rel="stylesheet" href="referral.css">
+<link rel="stylesheet" href="nav2.css">
+<style>
+  /* context strip */
+  .context-strip{
+    background:var(--g15);border-bottom:1px solid var(--line);
+    padding:10px 32px;font-size:12px;font-weight:700;color:var(--muted);text-align:center;
+  }
+
+  /* state toggle (wireframe review control) */
+  .state-toggle{display:flex;justify-content:flex-end;gap:8px;margin-bottom:22px;flex-wrap:wrap;}
+  .state-toggle .fchip{
+    border:1.5px solid var(--line-strong);border-radius:18px;background:#fff;
+    padding:6px 14px;font-size:11px;font-weight:700;color:var(--g80);cursor:pointer;
+  }
+  .state-toggle .fchip.on{background:var(--g90);color:#fff;border-color:var(--g90);}
+  .mod-state{display:none;}
+  .mod-state.show{display:block;}
+
+  /* event cards */
+  .event-list{display:flex;flex-direction:column;gap:14px;}
+  .event-card{
+    background:#fff;border:1.5px solid var(--line);border-radius:10px;
+    display:flex;align-items:center;gap:18px;padding:16px 18px;
+  }
+  .date-tile{
+    flex:none;width:64px;height:64px;border:2px solid var(--line-strong);border-radius:10px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--g10);
+  }
+  .date-tile .day{font-size:22px;font-weight:800;line-height:1;color:var(--ink);}
+  .date-tile .mon{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  .event-body{flex:1;min-width:0;}
+  .event-body h3{font-size:15px;line-height:1.25;text-transform:none;letter-spacing:0;}
+  .event-body .venue{font-size:12.5px;font-weight:700;color:var(--muted);margin-top:2px;}
+  .event-body .aud-tag{
+    display:inline-block;margin-top:6px;
+    border:1px solid var(--line-strong);border-radius:12px;padding:2px 10px;
+    font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--g80);
+  }
+  .event-card .btn{flex:none;padding:10px 18px;font-size:11px;}
+  .host-logo{
+    flex:none;width:74px;height:30px;border:1px solid var(--line);border-radius:4px;background:var(--g10);
+    display:flex;align-items:center;justify-content:center;
+    font-size:8px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  }
+
+  .show-more{display:flex;justify-content:center;margin-top:18px;}
+  .hidden-events{display:none;}
+  .hidden-events.revealed{display:flex;flex-direction:column;gap:14px;margin-top:14px;}
+
+  @media(max-width:820px){
+    .event-card{flex-wrap:wrap;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER -->
+  <section>
+    <nav class="nav">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="nav-right">
+        <a class="quiz-btn" href="quiz.html">Find Your Fit</a>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+      <a class="quiz-btn-menu" href="quiz.html" style="margin:14px 0 0;">Find Your Fit</a>
+    </div>
+  </div>
+
+  <div class="context-strip">Event card component sheet — the module itself is mocked in context on the <a href="illawarra.html">Illawarra sub-site</a> · consumer surfaces only</div>
+
+  <!-- ===== PROVIDERS & OPEN DAYS MODULE ===== -->
+  <section class="band tone-a">
+    <div class="wrap">
+
+      <h2 class="section-title" style="text-align:left;font-size:26px;margin-bottom:22px;">Event card — variants</h2>
+
+      <!-- CARD VARIANTS: with/without host logo · with/without audience tag -->
+      <div class="mod-state show" id="mstate3">
+        <div class="event-list">
+          <div class="event-card">
+            <div class="date-tile" aria-label="14 August"><span class="day">14</span><span class="mon">Aug</span></div>
+            <div class="event-body">
+              <h3>TAFE NSW Wollongong — Engineering Open Day</h3>
+              <p class="venue">Wollongong campus</p>
+            </div>
+            <div class="host-logo">Logo · TAFE NSW</div>
+            <span class="btn">Register ↗</span>
+          </div>
+          <div class="event-card">
+            <div class="date-tile" aria-label="2 September"><span class="day">2</span><span class="mon">Sep</span></div>
+            <div class="event-body">
+              <h3>Factory tour — see advanced manufacturing up close</h3>
+              <p class="venue">[Local employer]</p>
+              <span class="aud-tag">Bring a parent</span>
+            </div>
+            <span class="btn">Book a spot ↗</span>
+          </div>
+          <div class="event-card">
+            <div class="date-tile" aria-label="18 September"><span class="day">18</span><span class="mon">Sep</span></div>
+            <div class="event-body">
+              <h3>Illawarra Careers Expo — meet local manufacturers</h3>
+              <p class="venue">WIN Entertainment Centre, Wollongong</p>
+              <span class="aud-tag">School groups welcome</span>
+            </div>
+            <div class="host-logo">Logo · Expo</div>
+            <span class="btn">Details ↗</span>
+          </div>
+          <div class="event-card">
+            <div class="date-tile" aria-label="25 September"><span class="day">25</span><span class="mon">Sep</span></div>
+            <div class="event-body">
+              <h3>Minimal card — no logo, no tag</h3>
+              <p class="venue">Venue line only</p>
+            </div>
+            <span class="btn">Details ↗</span>
+          </div>
+        </div>
+        <p class="footnote" style="font-size:11px;color:var(--muted);margin:14px 0 34px;">Host logo slot: small, consistent height — institution marks say "real institutions" without the stretched-photo problem; mocked with and without, MISA to decide. Constrained CTA set: Register / Book a spot / Details. Date tiles carry full accessible date text.</p>
+        <h2 class="section-title" style="text-align:left;font-size:20px;margin-bottom:18px;">Ten-event density · "Show more" after five</h2>
+      </div>
+
+      <!-- TEN-EVENT DENSITY -->
+      <div class="mod-state show" id="mstate10">
+        <div class="event-list">
+          <div class="event-card">
+            <div class="date-tile" aria-label="14 August"><span class="day">14</span><span class="mon">Aug</span></div>
+            <div class="event-body"><h3>TAFE NSW Wollongong — Engineering Open Day</h3><p class="venue">Wollongong campus</p></div>
+            <span class="btn">Register ↗</span>
+          </div>
+          <div class="event-card">
+            <div class="date-tile" aria-label="2 September"><span class="day">2</span><span class="mon">Sep</span></div>
+            <div class="event-body"><h3>Factory tour — see advanced manufacturing up close</h3><p class="venue">[Local employer]</p></div>
+            <span class="btn">Book a spot ↗</span>
+          </div>
+          <div class="event-card">
+            <div class="date-tile" aria-label="18 September"><span class="day">18</span><span class="mon">Sep</span></div>
+            <div class="event-body"><h3>Illawarra Careers Expo — meet local manufacturers</h3><p class="venue">WIN Entertainment Centre, Wollongong</p></div>
+            <span class="btn">Details ↗</span>
+          </div>
+          <div class="event-card">
+            <div class="date-tile" aria-label="25 September"><span class="day">25</span><span class="mon">Sep</span></div>
+            <div class="event-body"><h3>TAFE NSW Shellharbour — Food Processing taster session</h3><p class="venue">Shellharbour campus</p></div>
+            <span class="btn">Register ↗</span>
+          </div>
+          <div class="event-card">
+            <div class="date-tile" aria-label="8 October"><span class="day">8</span><span class="mon">Oct</span></div>
+            <div class="event-body"><h3>Apprenticeship info session — GTO panel</h3><p class="venue">Wollongong Library</p></div>
+            <span class="btn">Details ↗</span>
+          </div>
+        </div>
+        <div class="hidden-events" id="more-events">
+          <div class="event-card">
+            <div class="date-tile" aria-label="16 October"><span class="day">16</span><span class="mon">Oct</span></div>
+            <div class="event-body"><h3>Robotics &amp; automation demo night</h3><p class="venue">[Local employer]</p></div>
+            <span class="btn">Book a spot ↗</span>
+          </div>
+          <div class="event-card">
+            <div class="date-tile" aria-label="29 October"><span class="day">29</span><span class="mon">Oct</span></div>
+            <div class="event-body"><h3>Women in Manufacturing breakfast</h3><p class="venue">Wollongong</p></div>
+            <span class="btn">Register ↗</span>
+          </div>
+          <div class="event-card">
+            <div class="date-tile" aria-label="5 November"><span class="day">5</span><span class="mon">Nov</span></div>
+            <div class="event-body"><h3>Print &amp; packaging plant tour</h3><p class="venue">[Local employer]</p></div>
+            <span class="btn">Book a spot ↗</span>
+          </div>
+          <div class="event-card">
+            <div class="date-tile" aria-label="12 November"><span class="day">12</span><span class="mon">Nov</span></div>
+            <div class="event-body"><h3>UOW engineering open evening</h3><p class="venue">University of Wollongong</p></div>
+            <span class="btn">Details ↗</span>
+          </div>
+          <div class="event-card">
+            <div class="date-tile" aria-label="26 November"><span class="day">26</span><span class="mon">Nov</span></div>
+            <div class="event-body"><h3>Defence manufacturing showcase</h3><p class="venue">Port Kembla</p></div>
+            <span class="btn">Details ↗</span>
+          </div>
+        </div>
+        <div class="show-more">
+          <span class="btn" id="show-more-btn" onclick="document.getElementById('more-events').classList.add('revealed');this.style.display='none';">Show more · 5 more events</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

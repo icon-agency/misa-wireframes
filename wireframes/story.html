@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — Story Wireframe (Lo-fi)</title>
+<link rel="stylesheet" href="wf.css">
+<link rel="stylesheet" href="referral.css">
+<link rel="stylesheet" href="nav2.css">
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER (sits on the hero band tone) -->
+  <section style="background:var(--g30);">
+    <nav class="nav" style="background:transparent;border-bottom:none;">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="nav-right">
+        <a class="quiz-btn" href="quiz.html">Find Your Fit</a>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+      <a class="quiz-btn-menu" href="quiz.html" style="margin:14px 0 0;">Find Your Fit</a>
+    </div>
+  </div>
+
+  <!-- TITLE BANNER (was blue gradient) -->
+  <section class="band tone-b" style="padding:70px 0;">
+    <div class="wrap">
+      <h1 style="font-size:40px;">Chloe's Story</h1>
+    </div>
+  </section>
+
+  <!-- ARTICLE -->
+  <section class="band tone-c">
+    <div class="article" style="padding:0 32px;">
+
+      <!-- Metadata -->
+      <div class="meta-list">
+        <div class="row"><b>Occupation:</b> Steel Fabricator (apprentice)</div>
+        <div class="row"><b>Name:</b> Chloe Cashion</div>
+        <div class="row"><b>Age:</b> 16</div>
+        <div class="row"><b>Organisation:</b> Tasweld</div>
+        <div class="row"><b>Location:</b> Warrnambool</div>
+      </div>
+
+      <!-- Portrait -->
+      <div class="placeholder" style="width:185px;height:220px;margin:18px 0 26px;"><span class="tag">Photo</span></div>
+
+      <h2>Why she pursued a career in manufacturing</h2>
+      <p class="body-text">"I first tried welding at school and straight away I knew it suited me better than sitting in a classroom. It just clicked."</p>
+      <p class="body-text">"I started with a few days of work experience at Tasweld and I've never looked back. What began as one day a week has now grown into something I really want to pursue full-time."</p>
+      <p class="body-text">"It wasn't until I actually put the helmet on and gave it a go that I realised, this is something I enjoy and could be good at."</p>
+
+      <h2>Learning and personal fulfilment</h2>
+      <p class="body-text">"When I put the helmet down, everything else disappears. I'm totally focused on the weld. I love that feeling."</p>
+      <p class="body-text">"It's hands-on, it's practical, and it's always changing. One day I'm working on a trailer, the next on a stainless steel tank or pipework. No two days are the same."</p>
+      <p class="body-text">"You start with a flat sheet of metal and by the end of the day you've built something real, that's pretty satisfying."</p>
+
+      <h2>Creativity and advice for other young people</h2>
+      <p class="body-text">"I'd say to any young person, just give it a go. Even a bit of work experience can show you if it's something you'll love."</p>
+      <p class="body-text">"There's a creative side to it too, shaping metal, problem-solving on the job, and building things from scratch. It keeps your brain ticking."</p>
+
+      <!-- REFERRAL BLOCK · Variant 2 — compact (Stage 2) -->
+      <div class="rb rb-compact" style="margin-top:44px;">
+        <h3>Do what Chloe does</h3>
+        <div class="rb-actions">
+          <a class="rb-cta primary" href="career-detail.html">Explore Steel Fabrication →</a>
+          <a class="rb-cta secondary" href="course-finder.html">Find a course near you →</a>
+        </div>
+      </div>
+
+    </div>
+    <div style="height:60px;"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — Take the Next Step Wireframe (Lo-fi)</title>
+<link rel="stylesheet" href="wf.css">
+<link rel="stylesheet" href="referral.css">
+<link rel="stylesheet" href="nav2.css">
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER -->
+  <section>
+    <nav class="nav">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="nav-right">
+        <a class="quiz-btn" href="quiz.html">Find Your Fit</a>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+      <a class="quiz-btn-menu" href="quiz.html" style="margin:14px 0 0;">Find Your Fit</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="placeholder">
+      <div class="hero-heading">Ready to take the<span>Next Step?</span></div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="band tone-a">
+    <div class="wrap">
+      <div class="intro">
+        <p class="body-text" style="font-size:16px;">You've seen some of what manufacturing careers can offer. <strong>Now it's time to make your move.</strong></p>
+        <p class="body-text" style="font-size:16px;">Whether you're curious, committed, or just need a bit more info—there's a path forward from here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER QUIZ CTA -->
+  <section class="band tone-b">
+    <div class="wrap">
+      <div class="cta-banner">
+        <h2>Match your interests to real careers. Not sure where you fit in?</h2>
+        <p class="body-text" style="max-width:560px;margin:-14px auto 28px;">Take our quick quiz to discover which manufacturing careers meet your interests—whether you're into tech, design, hands-on work, or science. It only takes a few minutes, and it's the fastest way to start thinking about a career for you.</p>
+        <div class="btn-row">
+          <a class="btn solid" href="quiz.html">Take The Career Quiz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE TRAINING OPTIONS (text left / image right) -->
+  <section class="band tone-c" style="padding:0;">
+    <div class="wrap">
+      <div class="split">
+        <div class="textcol">
+          <h2>Explore Training Options</h2>
+          <div class="kicker">Found a job you like? Here's how to get there.</div>
+          <p class="body-text">Whether it's through an apprenticeship, or training course alone, there are multiple ways to start your journey. Learn what qualifications you'll need, how long it might take, and what you can expect to earn while you train.</p>
+          <p class="body-text">The National Careers Institute is the home of career information. Search industries, occupations and study options to find a career that's right for you and what you can do to get there.</p>
+          <span class="btn solid">Explore Your Career</span>
+        </div>
+        <div class="imgcol"><div class="placeholder"><span class="tag">Photo</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND OUT FROM SOMEONE WHO'S DONE IT (image left / text right) -->
+  <section class="band tone-c" style="padding:0;">
+    <div class="wrap">
+      <div class="split">
+        <div class="imgcol"><div class="placeholder"><span class="tag">Photo</span></div></div>
+        <div class="textcol" style="padding:56px 0 56px 48px;">
+          <h2>Find Out From Someone Who's Done It</h2>
+          <div class="kicker">Want to get an idea of what the job's really like?</div>
+          <p class="body-text">Meet people who've taken the leap into manufacturing—from apprentices to engineers to business owners. Find out how they got started, what they love about their work, and what advice they have for someone just starting out.</p>
+          <p class="body-text">See our success stories below for people who've taken the leap into manufacturing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS STORIES -->
+  <section class="band tone-d stories">
+    <div class="wrap">
+      <div class="rail-head">
+        <h2 class="section-title">Success Stories</h2>
+        <a class="see-all" href="stories-index.html">See all stories →</a>
+      </div>
+      <div class="carousel">
+        <a class="story-card" href="story.html">
+          <div class="placeholder"><span class="tag">Photo</span></div>
+          <div class="qbody">
+            <p class="quote">"When I put the helmet down, everything else disappears. I'm totally focused on the weld. I love that feeling."</p>
+            <div>
+              <div class="who">Chloe C<small>Steel Fabricator (apprentice)</small></div>
+              <span class="read-link">Read Chloe's story →</span>
+            </div>
+          </div>
+        </a>
+        <a class="story-card" href="story.html">
+          <div class="placeholder"><span class="tag">Photo</span></div>
+          <div class="qbody">
+            <p class="quote">"What I enjoy most is solving problems. Taking a set of design requirements and working out exactly how to make something work."</p>
+            <div>
+              <div class="who">Gervaise V<small>Mechanical Engineer</small></div>
+              <span class="read-link">Read Gervaise's story →</span>
+            </div>
+          </div>
+        </a>
+        <a class="story-card" href="story.html">
+          <div class="placeholder"><span class="tag">Photo</span></div>
+          <div class="qbody">
+            <p class="quote">"I build things you can see from the highway."</p>
+            <div>
+              <div class="who">Jess<small>Apprentice Boilermaker</small></div>
+              <span class="read-link">Read Jess's story →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <a class="see-all mobile-only" href="stories-index.html">See all stories →</a>
+      <div class="carousel-ctrls">
+        <div class="arrow">‹</div>
+        <div class="dots"><i class="on"></i><i></i><i></i></div>
+        <div class="arrow">›</div>
+      </div>
+      <p class="rail-note">No auto-rotation · all cards keyboard-reachable · mobile = swipe rail with next-card peek · max one story per role · at 8+ stories the rail shows a curated 4–6 weighted to page context — the index takes the overflow · card click and CTA click track as separate GA4 events.</p>
+    </div>
+  </section>
+
+  <!-- GET ADVICE FROM EXPERTS -->
+  <section class="band tone-c">
+    <div class="article" style="padding:0 32px;">
+      <h2 style="font-size:26px;margin-top:0;">Get Advice From Experts</h2>
+      <p class="body-text"><strong>You don't have to figure this out alone.</strong></p>
+      <p class="body-text">Career advisors, training organisations, and support networks are here to help you take the next step. Whether you want help with planning, applications, or exploring options, you've got people in your corner.</p>
+      <h2>You don't need all the answers. You just need to ask the right questions.</h2>
+      <p class="body-text">Your school's career adviser or relevant teacher is one of the best people to talk to right now. They can help you figure out your next steps—whether that's choosing subjects, applying for apprenticeships, or finding the right training course. Don't wait until Year 12. If you're even a little interested in manufacturing, now's the time to start the conversation.</p>
+      <h2>Ask your career adviser or relevant teacher</h2>
+      <ul>
+        <li>"What manufacturing jobs could suit me?"</li>
+        <li>"Are there local employers offering apprenticeships?"</li>
+        <li>"What training courses should I look at?"</li>
+        <li>"Can you help me with my resume or application?"</li>
+      </ul>
+      <h2>Explore training options near you</h2>
+      <p class="body-text">TAFE and other training organisations are a great way to gain practical, job-ready skills. Many manufacturing careers start <u>here</u>.</p>
+      <p class="body-text">Even if you're unsure of the exact path, speaking with your career adviser at school or checking out websites for your local training organisation can open doors you didn't know existed.</p>
+    </div>
+  </section>
+
+  <!-- REFERRAL BLOCK · Variant 1 — full · the page's conversion core (Stage 2) -->
+  <section class="band tone-c" style="padding-top:0;">
+    <div class="wrap">
+      <div class="rb rb-full">
+        <h3>Start your pathway</h3>
+        <div class="rb-actions">
+          <div class="rb-primary-card">
+            <span class="rb-course">Found a career you like? There's a course for it.</span>
+            <a class="rb-cta primary" href="course-finder.html">Find a course near you →</a>
+          </div>
+          <span class="rb-cta secondary">Get paid while you train — talk to a group training organisation →</span>
+          <a class="rb-cta tertiary" href="quiz.html">Not sure where to start? Take the 60-second quiz →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band tone-f faq">
+    <div class="wrap">
+      <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><span>What do jobs in manufacturing actually involve?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Is manufacturing still dirty, dangerous, or repetitive?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What kind of skills or education do I need?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Is manufacturing a good, stable career? Will I earn a decent salary?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What is the future of manufacturing with automation and robotics?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Are there opportunities for advancement and growth?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What is it actually like to work in a manufacturing facility?</span><span class="chev">⌄</span></div>
+        <div class="rb-micro">Still deciding? <a href="quiz.html">Take the quiz →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

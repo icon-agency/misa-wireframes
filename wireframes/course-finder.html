@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — Course Finder Wireframe (Stage 2 · Lo-fi)</title>
+<link rel="stylesheet" href="wf2.css">
+<link rel="stylesheet" href="nav2.css">
+<style>
+  /* search */
+  .search-row{display:flex;gap:10px;flex-wrap:wrap;max-width:560px;}
+  .filter-chips{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;margin-top:16px;padding-bottom:4px;}
+  .fchip{
+    flex:none;border:1.5px solid var(--line-strong);border-radius:18px;background:#fff;
+    padding:6px 16px;font-size:12px;font-weight:700;color:var(--g80);white-space:nowrap;cursor:pointer;
+  }
+  .fchip.on{background:var(--g90);color:#fff;border-color:var(--g90);}
+  .context-chip{
+    display:inline-flex;align-items:center;gap:8px;margin-top:14px;
+    border:1.5px dashed var(--line-strong);border-radius:18px;background:var(--g15);
+    padding:6px 14px;font-size:12px;font-weight:700;color:var(--ink);
+  }
+  .context-chip b{cursor:pointer;}
+
+  /* results */
+  .results-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin:30px 0 18px;}
+  .results-head h2{font-size:18px;}
+  .sort{font-size:12px;font-weight:700;color:var(--g80);border:1.5px solid var(--line-strong);border-radius:18px;background:#fff;padding:6px 14px;}
+  .results-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start;}
+  .results-list{display:flex;flex-direction:column;gap:14px;}
+  .course-card .leads{font-size:13px;font-weight:700;color:var(--ink);}
+  .course-card .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+  .course-card .dist{font-size:12px;font-weight:800;color:var(--muted);}
+  .map-panel{position:sticky;top:16px;}
+  .map-panel .placeholder{height:380px;}
+  .map-note{font-size:11px;color:var(--muted);margin-top:8px;}
+
+  /* empty state */
+  .empty-state{border:1.5px dashed var(--line-strong);border-radius:10px;background:var(--g10);padding:26px 22px;margin-top:44px;}
+  .empty-state h2{font-size:18px;margin-bottom:6px;}
+  .empty-state .sub{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+
+
+  @media(max-width:820px){
+    .results-grid{grid-template-columns:1fr;}
+    .map-panel{position:static;}
+    .map-panel .placeholder{height:180px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER -->
+  <section>
+    <nav class="nav">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="nav-right">
+        <a class="quiz-btn" href="quiz.html">Find Your Fit</a>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+      <a class="quiz-btn-menu" href="quiz.html" style="margin:14px 0 0;">Find Your Fit</a>
+    </div>
+  </div>
+
+
+
+    <!-- 1. HEADER + 2. SEARCH -->
+    <section class="band tone-a" style="padding:44px 0;">
+      <div class="wrap">
+        <h1 style="font-size:32px;margin-bottom:10px;">Find a manufacturing course near you</h1>
+        <p class="body-text" style="max-width:560px;">Search real courses at TAFEs and training providers across Australia — and see how to get started.</p>
+        <div class="search-row" style="margin-top:22px;">
+          <span class="input">e.g. 2500 or Wollongong</span>
+          <span class="btn solid">Search</span>
+        </div>
+        <div class="filter-chips">
+          <span class="fchip on">All courses</span>
+          <span class="fchip">Engineering &amp; trades</span>
+          <span class="fchip">Food &amp; beverage</span>
+          <span class="fchip">Digital &amp; design</span>
+          <span class="fchip">Apprenticeships only</span>
+        </div>
+        <span class="context-chip">Matched to: Creative Designer <b>✕</b></span>
+      </div>
+    </section>
+
+    <!-- 3. RESULTS + 4. MAP -->
+    <section class="band tone-c" style="padding-top:34px;">
+      <div class="wrap">
+        <div class="results-head">
+          <h2>12 courses within 50 km of Wollongong</h2>
+          <span class="sort">Sort: Nearest first ⌄</span>
+        </div>
+        <div class="results-grid">
+          <div class="results-list">
+            <div class="course-card">
+              <div class="row"><span class="provider">TAFE NSW Wollongong</span><span class="dist">· in Wollongong</span></div>
+              <h3>Certificate III in Engineering – Fabrication Trade (Boilermaking/welding)</h3>
+              <div class="row"><span class="chip">Apprenticeship pathway</span></div>
+              <p class="leads">Leads to: Welder, Metal Fabricator</p>
+              <a class="btn" href="https://www.tafensw.edu.au/course-areas/engineering/courses/certificate-iii-in-engineering-fabrication-trade-boilermaking-welding--MEM31922-04?utm_source=makeitmanufacturing&utm_medium=referral&utm_campaign=stage2&utm_content=coursefinder-tafe-course" target="_blank" rel="noopener">Enquire at TAFE NSW ↗</a>
+              <span class="avail-note">Campus availability subject to data verification.</span>
+            </div>
+            <div class="course-card">
+              <div class="row"><span class="provider">TAFE NSW Wollongong</span><span class="dist">· in Wollongong</span></div>
+              <h3>Certificate IV in Engineering Drafting</h3>
+              <div class="row"><span class="chip">Multiple study modes</span></div>
+              <p class="leads">Leads to: Mechanical Engineering Draftsperson</p>
+              <a class="btn" href="https://www.tafensw.edu.au/course-areas/engineering/courses/certificate-iv-in-engineering-drafting--MEM40422-01?utm_source=makeitmanufacturing&utm_medium=referral&utm_campaign=stage2&utm_content=coursefinder-tafe-course" target="_blank" rel="noopener">Enquire at TAFE NSW ↗</a>
+              <span class="avail-note">Campus availability subject to data verification.</span>
+            </div>
+            <div class="course-card">
+              <div class="row"><span class="provider">TAFE NSW Shellharbour</span><span class="dist">· 18 km</span></div>
+              <h3>Certificate III in Food Processing</h3>
+              <p class="leads">Leads to: Food processing technician, production roles</p>
+              <a class="btn" href="https://www.tafensw.edu.au/course-areas/food-and-hospitality/courses/certificate-iii-in-food-processing--FBP30121-01?utm_source=makeitmanufacturing&utm_medium=referral&utm_campaign=stage2&utm_content=coursefinder-tafe-course" target="_blank" rel="noopener">Enquire at TAFE NSW ↗</a>
+              <span class="avail-note">Campus availability subject to data verification.</span>
+            </div>
+            <div class="course-card referral">
+              <h3>Prefer to earn while you learn?</h3>
+              <p class="meta">A group training organisation can place you in a paid apprenticeship with a local employer.</p>
+              <a class="btn" href="https://www.nsw.gov.au/education-and-training/apprentices-and-trainees/employers/find-a-gto-nsw?utm_source=makeitmanufacturing&utm_medium=referral&utm_campaign=stage2&utm_content=coursefinder-gto" target="_blank" rel="noopener">Find a GTO — NSW Government ↗</a>
+            </div>
+            <!-- Illawarra conditional — same component as persona results -->
+            <div class="illawarra-banner">
+              <h3>Manufacturing is hiring in the Illawarra</h3>
+              <p>Local employers are running open days this year — see what's on near you.</p>
+              <a class="btn" href="illawarra.html">See Illawarra opportunities →</a>
+            </div>
+          </div>
+          <div class="map-panel">
+            <div class="placeholder"><span class="tag">Map · result pins</span></div>
+            <p class="map-note">Supporting context only — pins highlight the matching card. Collapsed by default on mobile; page fully usable without it.</p>
+          </div>
+        </div>
+
+        <!-- 5. EMPTY / SPARSE STATE (postcode 2880, Broken Hill) -->
+        <div class="empty-state">
+          <div class="sub">Empty / sparse state · postcode 2880 (Broken Hill)</div>
+          <h2>No courses within 50 km — here are the nearest options</h2>
+          <div class="results-list" style="margin-top:16px;">
+            <div class="course-card">
+              <div class="row"><span class="provider">TAFE NSW Dubbo</span><span class="dist">· 580 km · radius auto-expanded</span></div>
+              <h3>Certificate III in Engineering – Fabrication Trade (Boilermaking/welding)</h3>
+              <p class="leads">Leads to: Welder, Metal Fabricator</p>
+              <a class="btn" href="https://www.tafensw.edu.au/course-areas/engineering/courses/certificate-iii-in-engineering-fabrication-trade-boilermaking-welding--MEM31922-04?utm_source=makeitmanufacturing&utm_medium=referral&utm_campaign=stage2&utm_content=coursefinder-tafe-course" target="_blank" rel="noopener">Enquire at TAFE NSW ↗</a>
+              <span class="avail-note">Campus availability subject to data verification.</span>
+            </div>
+            <div class="course-card referral">
+              <h3>Can't get there?</h3>
+              <p class="meta">Many providers offer online and flexible study options.</p>
+              <span class="btn">Ask about online and flexible study ↗</span>
+            </div>
+          </div>
+          <p class="map-note" style="margin-top:12px;">Invalid postcode uses the same inline validation pattern as the quiz — no modal.</p>
+        </div>
+
+      </div>
+    </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

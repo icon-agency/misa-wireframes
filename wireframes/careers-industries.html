@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — Careers &amp; Industries Wireframe (Lo-fi)</title>
+<link rel="stylesheet" href="wf.css">
+<link rel="stylesheet" href="referral.css">
+<link rel="stylesheet" href="nav2.css">
+<style>
+  .grid-careers,.grid-industries{display:none;}
+  .grid-careers.show,.grid-industries.show{display:grid;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER -->
+  <section>
+    <nav class="nav">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="nav-right">
+        <a class="quiz-btn" href="quiz.html">Find Your Fit</a>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+      <a class="quiz-btn-menu" href="quiz.html" style="margin:14px 0 0;">Find Your Fit</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="placeholder">
+      <div class="hero-heading">Discover careers &amp; industries in<span>Manufacturing</span></div>
+      <div class="bubble hero-bubble">Careers that solve real world problems?<br><span class="fact">Fact.</span></div>
+    </div>
+  </section>
+
+  <!-- RANGE OF OPPORTUNITIES -->
+  <section class="band tone-a">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Range of Opportunities</h2>
+        <p class="body-text">Take a look at examples of careers and the dynamic industries you can choose in Australian manufacturing. This may help you visualise the types of environments and skills to help achieve your personal career goals and shape Australia's future.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POTENTIAL FUTURES IN MANUFACTURING (tabbed module) -->
+  <section class="band tone-c">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Potential Futures in Manufacturing</h2>
+        <p class="body-text">Scroll through some of the careers and industries making waves in Aussie manufacturing. See something that sparks your interest? This is just a taste of what's out there and currently in shortage. There are many more on offer.</p>
+      </div>
+      <div class="tabs" style="margin-top:34px;">
+        <span class="tab on" id="tab-careers" onclick="swapTab('careers')">Careers</span>
+        <span class="tab" id="tab-industries" onclick="swapTab('industries')">Industries</span>
+      </div>
+      <div style="position:relative;">
+        <div class="bubble" style="left:-8px;top:-40px;">Careers that make a real difference?<br><span class="fact">Fact.</span></div>
+
+        <!-- CAREERS TAB — 12 cards -->
+        <div class="photo-grid grid-careers show" id="grid-careers">
+          <a class="photo-card" href="career-detail.html"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Production Manager</div></a>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Aircraft Maintenance Engineers</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Sheetmetal Worker</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Welder</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Bread Baker</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Mechatronics Engineer</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Food Technologist</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Boat Builder</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Mechanical Engineering Tradesperson (Fitter)</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Plastics Processing Machine Operators</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Toolmaker</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Print Machinist</div></div>
+        </div>
+
+        <!-- INDUSTRIES TAB — 9 cards -->
+        <div class="photo-grid grid-industries" id="grid-industries">
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Aerospace</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Chemicals, Hydrocarbons &amp; Refining</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Defence &amp; Space Technologies</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Laboratory Operations</div></div>
+          <a class="photo-card" href="industry-page.html"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Food &amp; Beverage</div></a>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">General Manufacturing &amp; Engineering</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Plastics, rubber and cable-making (polymers)</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Pharmaceutical</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Print &amp; Graphic Arts</div></div>
+        </div>
+      </div>
+      <div class="center" style="margin-top:32px;">
+        <span class="btn">Load More</span>
+      </div>
+
+      <!-- REFERRAL BLOCK · Variant 3 — inline banner (Stage 2 · max one per page) -->
+      <div class="rb rb-inline" style="margin-top:36px;">
+        <p>See where you fit in manufacturing</p>
+        <a class="rb-cta primary" href="quiz.html">Take the 60-second quiz →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS STORIES -->
+  <section class="band tone-d stories">
+    <div class="wrap">
+      <div class="rail-head">
+        <h2 class="section-title">Success Stories</h2>
+        <a class="see-all" href="stories-index.html">See all stories →</a>
+      </div>
+      <div class="carousel">
+        <a class="story-card" href="story.html">
+          <div class="placeholder"><span class="tag">Photo</span></div>
+          <div class="qbody">
+            <p class="quote">"When I put the helmet down, everything else disappears. I'm totally focused on the weld. I love that feeling."</p>
+            <div>
+              <div class="who">Chloe C<small>Steel Fabricator (apprentice)</small></div>
+              <span class="read-link">Read Chloe's story →</span>
+            </div>
+          </div>
+        </a>
+        <a class="story-card" href="story.html">
+          <div class="placeholder"><span class="tag">Photo</span></div>
+          <div class="qbody">
+            <p class="quote">"What I enjoy most is solving problems. Taking a set of design requirements and working out exactly how to make something work."</p>
+            <div>
+              <div class="who">Gervaise V<small>Mechanical Engineer</small></div>
+              <span class="read-link">Read Gervaise's story →</span>
+            </div>
+          </div>
+        </a>
+        <a class="story-card" href="story.html">
+          <div class="placeholder"><span class="tag">Photo</span></div>
+          <div class="qbody">
+            <p class="quote">"I build things you can see from the highway."</p>
+            <div>
+              <div class="who">Jess<small>Apprentice Boilermaker</small></div>
+              <span class="read-link">Read Jess's story →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <a class="see-all mobile-only" href="stories-index.html">See all stories →</a>
+      <div class="carousel-ctrls">
+        <div class="arrow">‹</div>
+        <div class="dots"><i class="on"></i><i></i><i></i></div>
+        <div class="arrow">›</div>
+      </div>
+      <p class="rail-note">No auto-rotation · all cards keyboard-reachable · mobile = swipe rail with next-card peek · max one story per role · at 8+ stories the rail shows a curated 4–6 weighted to page context — the index takes the overflow · card click and CTA click track as separate GA4 events.</p>
+    </div>
+  </section>
+
+  <!-- FIND YOUR FIT PROFILE TOOL -->
+  <section class="band tone-e">
+    <div class="wrap">
+      <div class="cta-tool">
+        <div class="txt">
+          <h2>Find Your Fit Profile Tool</h2>
+          <p class="body-text">Take the FIND YOUR FIT career quiz to see which manufacturing careers align with your interests.</p>
+        </div>
+        <a class="btn solid" href="quiz.html">Take The Quiz</a>
+        <div class="bubble tool-bubble">Cutting edge tech?<br><span class="fact">Fact.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band tone-f faq">
+    <div class="wrap">
+      <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><span>What do jobs in manufacturing actually involve?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Is manufacturing still dirty, dangerous, or repetitive?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What kind of skills or education do I need?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Is manufacturing a good, stable career? Will I earn a decent salary?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What is the future of manufacturing with automation and robotics?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Are there opportunities for advancement and growth?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What is it actually like to work in a manufacturing facility?</span><span class="chev">⌄</span></div>
+        <div class="rb-micro">Still deciding? <a href="quiz.html">Take the quiz →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script>
+function swapTab(which){
+  document.getElementById('grid-careers').classList.toggle('show', which==='careers');
+  document.getElementById('grid-industries').classList.toggle('show', which==='industries');
+  document.getElementById('tab-careers').classList.toggle('on', which==='careers');
+  document.getElementById('tab-industries').classList.toggle('on', which==='industries');
+}
+</script>
+</body>
+</html>

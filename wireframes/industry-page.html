@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — Industry Page Wireframe (Stage 2 · Lo-fi)</title>
+<link rel="stylesheet" href="wf2.css">
+<link rel="stylesheet" href="referral.css">
+<link rel="stylesheet" href="nav2.css">
+<style>
+  /* stat strip */
+  .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .stat{
+    background:#fff;border:1.5px solid var(--line);border-radius:10px;
+    padding:22px 20px;text-align:center;
+  }
+  .stat .num{font-size:30px;font-weight:800;color:var(--ink);line-height:1;}
+  .stat .lbl{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
+  .stat-note{font-size:11px;color:var(--muted);margin-top:12px;}
+
+  /* role vignettes */
+  .vignettes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .vignette{
+    background:#fff;border:1.5px solid var(--line);border-radius:10px;
+    overflow:hidden;display:flex;flex-direction:column;
+    text-decoration:none;color:var(--ink);
+  }
+  .vignette .v-img{height:120px;}
+  .vignette .v-img .placeholder{height:100%;border:none;border-radius:0;border-bottom:1px solid var(--line);}
+  .vignette .v-body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .vignette h3{font-size:15px;}
+  .vignette .one-liner{font-size:13px;color:var(--g80);flex:1;}
+  .vignette .v-link{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--g80);text-decoration:underline;}
+
+  /* pathways strip */
+  .pathways{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:start;}
+
+  /* snapshot download */
+  .snapshot-dl{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    border:1.5px dashed var(--line-strong);border-radius:10px;background:var(--g10);
+    padding:18px 22px;
+  }
+  .snapshot-dl .txt{font-size:14px;font-weight:700;color:var(--ink);}
+  .snapshot-dl .filemeta{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block;margin-top:2px;}
+
+  /* content-state toggle (wireframe review control) */
+  .density-toggle{display:flex;justify-content:flex-end;gap:8px;margin:22px 0;}
+  .density-toggle .fchip{
+    border:1.5px solid var(--line-strong);border-radius:18px;background:#fff;
+    padding:6px 14px;font-size:11px;font-weight:700;color:var(--g80);cursor:pointer;
+  }
+  .density-toggle .fchip.on{background:var(--g90);color:#fff;border-color:var(--g90);}
+  .sparse-note{font-size:11px;color:var(--muted);margin-top:10px;}
+
+  @media(max-width:820px){
+    .stat-strip,.vignettes,.pathways{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER -->
+  <section>
+    <nav class="nav">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="nav-right">
+        <a class="quiz-btn" href="quiz.html">Find Your Fit</a>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+      <a class="quiz-btn-menu" href="quiz.html" style="margin:14px 0 0;">Find Your Fit</a>
+    </div>
+  </div>
+
+  <!-- 1. HERO -->
+  <section class="hero short">
+    <div class="placeholder">
+      <div class="hero-heading" style="font-size:36px;">Food &amp; Beverage<span>Manufacturing</span></div>
+    </div>
+  </section>
+  <section class="band tone-a" style="padding:32px 0;">
+    <div class="wrap">
+      <p class="body-text" style="font-size:17px;font-weight:700;max-width:560px;">Australia's biggest manufacturing employer — from craft brewing to food science.</p>
+    </div>
+  </section>
+
+  <!-- 2. STAT STRIP -->
+  <section class="band tone-c" style="padding:40px 0 0;">
+    <div class="wrap">
+      <div class="density-toggle" style="margin-top:0;">
+        <span class="fchip on" id="dfull" onclick="state('full')">Full content</span>
+        <span class="fchip" id="dsparse" onclick="state('sparse')">Sparse industry variant</span>
+      </div>
+      <div class="stat-strip">
+        <div class="stat">
+          <div class="num">◇◇◇,◇◇◇</div>
+          <div class="lbl">People employed</div>
+        </div>
+        <div class="stat">
+          <div class="num">+◇◇%</div>
+          <div class="lbl">Projected growth</div>
+        </div>
+        <div class="stat">
+          <div class="num">◇◇</div>
+          <div class="lbl">Regions hiring</div>
+        </div>
+      </div>
+      <p class="stat-note">Data slots — final figures lifted from the 2024 Industry Snapshots at migration · flagged for currency check.</p>
+    </div>
+  </section>
+
+  <!-- 3. WHAT YOU'D ACTUALLY DO -->
+  <section class="band tone-c">
+    <div class="wrap">
+      <h2 class="section-title" style="text-align:left;font-size:24px;margin-bottom:22px;">What you'd actually do</h2>
+      <div class="vignettes" id="vignettes">
+        <a class="vignette" href="career-detail.html">
+          <div class="v-img"><div class="placeholder"><span class="tag">Photo</span></div></div>
+          <div class="v-body">
+            <h3>Bread Baker</h3>
+            <p class="one-liner">Turn flour into the loaves on every shelf in the country — craft at production scale.</p>
+            <span class="v-link">See this career →</span>
+          </div>
+        </a>
+        <a class="vignette" href="career-detail.html">
+          <div class="v-img"><div class="placeholder"><span class="tag">Photo</span></div></div>
+          <div class="v-body">
+            <h3>Food Technologist</h3>
+            <p class="one-liner">Design, test and improve the food products millions eat every day.</p>
+            <span class="v-link">See this career →</span>
+          </div>
+        </a>
+        <a class="vignette" href="career-detail.html" id="vig3">
+          <div class="v-img"><div class="placeholder"><span class="tag">Photo</span></div></div>
+          <div class="v-body">
+            <h3>Production Manager</h3>
+            <p class="one-liner">Run the line — teams, schedules, quality and safety, end to end.</p>
+            <span class="v-link">See this career →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. STORY SLOT (industry-matched · T6 rail card · retrofit fallback) -->
+  <section class="band tone-b" id="story-slot">
+    <div class="wrap">
+      <div class="t6-card" style="max-width:420px;margin:0 auto;">
+        <div class="t6-img">
+          <div class="placeholder"><span class="tag">Portrait · Aisha</span></div>
+          <span class="persona-chip">Problem Solver</span>
+        </div>
+        <div class="t6-body">
+          <span class="t6-name">Aisha K</span>
+          <span class="t6-meta">Food Technologist · Shepparton</span>
+          <a class="btn" href="story.html" style="margin-top:12px;">Read Aisha's story →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PATHWAYS STRIP -->
+  <section class="band tone-a">
+    <div class="wrap">
+      <h2 class="section-title" style="text-align:left;font-size:24px;margin-bottom:22px;">Courses for this industry</h2>
+      <div class="pathways">
+        <div class="course-card">
+          <div class="provider">TAFE NSW Shellharbour</div>
+          <h3>Certificate III in Food Processing</h3>
+          <p class="leads">Leads to: Food processing technician, production roles</p>
+          <a class="btn" href="https://www.tafensw.edu.au/course-areas/food-and-hospitality/courses/certificate-iii-in-food-processing--FBP30121-01?utm_source=makeitmanufacturing&utm_medium=referral&utm_campaign=stage2&utm_content=industry-tafe-course" target="_blank" rel="noopener">Enquire at TAFE NSW ↗</a>
+          <span class="avail-note">Campus availability subject to data verification.</span>
+        </div>
+        <div class="course-card referral" id="finder-card">
+          <h3>More courses near you</h3>
+          <p class="meta">Search the full course list for this industry by postcode.</p>
+          <a class="btn" href="course-finder.html">Open the course finder →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. REFERRAL BLOCK · Variant 2 -->
+  <section class="band tone-c" style="padding-bottom:0;">
+    <div class="wrap">
+      <div class="rb rb-compact">
+        <h3>Where could you fit in food &amp; beverage?</h3>
+        <div class="rb-actions">
+          <a class="rb-cta primary" href="careers-industries.html">See food &amp; beverage careers →</a>
+          <a class="rb-cta secondary" href="course-finder.html">Find a course near you →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. SNAPSHOT DOWNLOAD -->
+  <section class="band tone-c">
+    <div class="wrap">
+      <div class="snapshot-dl">
+        <div>
+          <span class="txt">2024 Industry Snapshot (PDF)</span>
+          <span class="filemeta">The original document · PDF · 3 MB</span>
+        </div>
+        <span class="btn">Download ↓</span>
+      </div>
+      <p class="sparse-note" id="sparse-note" style="display:none;">Sparse variant: story slot and third vignette collapse — modules never show empty. Ten pages, one template; Defence &amp; Space and Laboratory Operations get pages in the same migration pass.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script>
+function state(which){
+  const sparse = which==='sparse';
+  document.getElementById('story-slot').style.display = sparse ? 'none' : '';
+  document.getElementById('vig3').style.display = sparse ? 'none' : '';
+  document.getElementById('sparse-note').style.display = sparse ? '' : 'none';
+  document.getElementById('dfull').classList.toggle('on', !sparse);
+  document.getElementById('dsparse').classList.toggle('on', sparse);
+}
+</script>
+</body>
+</html>

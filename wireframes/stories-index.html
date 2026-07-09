@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — Stories Index Wireframe (Stage 2 · Lo-fi)</title>
+<link rel="stylesheet" href="wf2.css">
+<link rel="stylesheet" href="referral.css">
+<link rel="stylesheet" href="nav2.css">
+<style>
+  .filter-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;}
+  .fchip{
+    border:1.5px solid var(--line-strong);border-radius:18px;background:#fff;
+    padding:6px 16px;font-size:12px;font-weight:700;color:var(--g80);cursor:pointer;
+  }
+  .fchip.on{background:var(--g90);color:#fff;border-color:var(--g90);}
+
+  /* density toggle (wireframe review control) */
+  .density-toggle{display:flex;justify-content:flex-end;gap:8px;margin-bottom:22px;}
+  .density-toggle .fchip{font-size:11px;}
+
+  .stories-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  /* launch state: 3 stories = feature row, never a sparse grid */
+  .stories-grid.launch{grid-template-columns:repeat(3,1fr);gap:24px;}
+  .stories-grid.launch .t6-card .t6-img{height:280px;}
+  .grid-state{display:none;}
+  .grid-state.show{display:block;}
+
+  @media(max-width:820px){
+    .stories-grid,.stories-grid.launch{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER -->
+  <section>
+    <nav class="nav">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="nav-right">
+        <a class="quiz-btn" href="quiz.html">Find Your Fit</a>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+      <a class="quiz-btn-menu" href="quiz.html" style="margin:14px 0 0;">Find Your Fit</a>
+    </div>
+  </div>
+
+  <!-- HEADER + FILTERS -->
+  <section class="band tone-a" style="padding:44px 0;">
+    <div class="wrap">
+      <h1 style="font-size:32px;margin-bottom:10px;">Success Stories</h1>
+      <p class="body-text" style="max-width:560px;">Real people who've taken the leap into manufacturing — how they got started, and what they'd tell you.</p>
+      <div class="filter-chips">
+        <span class="fchip on">All</span>
+        <span class="fchip">By persona ⌄</span>
+        <span class="fchip">Illawarra</span>
+        <span class="fchip">First Nations</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY GRID -->
+  <section class="band tone-c" style="padding-top:34px;">
+    <div class="wrap">
+
+      <div class="density-toggle">
+        <span class="fchip" id="d3" onclick="density(3)">Launch state · 3 stories</span>
+        <span class="fchip on" id="d11" onclick="density(11)">Full slate · 11 stories</span>
+      </div>
+
+      <!-- LAUNCH STATE: 3 stories as a feature row -->
+      <div class="grid-state" id="state3">
+        <div class="stories-grid launch">
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Poster frame · video</span></div>
+              <span class="persona-chip">Tech Enthusiast</span>
+              <span class="flag-chip">Illawarra</span>
+              <span class="play">▶</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Jess M</span>
+              <span class="t6-meta">Mechatronics Apprentice · Wollongong</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Portrait</span></div>
+              <span class="persona-chip">Creative Designer</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Chloe C</span>
+              <span class="t6-meta">Steel Fabricator (apprentice) · Warrnambool</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Portrait</span></div>
+              <span class="persona-chip">Hands-on Maker</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Darcy B</span>
+              <span class="t6-meta">Steel Fabricator · Ballarat</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- FULL SLATE: 11 stories -->
+      <div class="grid-state show" id="state11">
+        <div class="stories-grid">
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Poster frame · video</span></div>
+              <span class="persona-chip">Tech Enthusiast</span>
+              <span class="flag-chip">Illawarra</span>
+              <span class="play">▶</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Jess M</span>
+              <span class="t6-meta">Mechatronics Apprentice · Wollongong</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Portrait</span></div>
+              <span class="persona-chip">Creative Designer</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Chloe C</span>
+              <span class="t6-meta">Steel Fabricator (apprentice) · Warrnambool</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Portrait</span></div>
+              <span class="persona-chip">Hands-on Maker</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Darcy B</span>
+              <span class="t6-meta">Steel Fabricator · Ballarat</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Portrait</span></div>
+              <span class="persona-chip">Problem Solver</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Gervaise V</span>
+              <span class="t6-meta">Mechanical Engineer · Melbourne</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Poster frame · video</span></div>
+              <span class="persona-chip">Hands-on Maker</span>
+              <span class="flag-chip">First Nations</span>
+              <span class="play">▶</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Kirra M</span>
+              <span class="t6-meta">Welder · Dubbo</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Portrait</span></div>
+              <span class="persona-chip">Problem Solver</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Aisha K</span>
+              <span class="t6-meta">Food Technologist · Shepparton</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Portrait</span></div>
+              <span class="persona-chip">Creative Designer</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Tom R</span>
+              <span class="t6-meta">Boat Builder · Hobart</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Portrait</span></div>
+              <span class="persona-chip">Creative Designer</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Mia L</span>
+              <span class="t6-meta">Print Machinist · Adelaide</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Portrait</span></div>
+              <span class="persona-chip">Planner &amp; Organiser</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Sam D</span>
+              <span class="t6-meta">Toolmaker · Geelong</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Portrait</span></div>
+              <span class="persona-chip">Planner &amp; Organiser</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Ella P</span>
+              <span class="t6-meta">Production Manager · Brisbane</span>
+            </div>
+          </a>
+          <a class="t6-card" href="story.html">
+            <div class="t6-img">
+              <div class="placeholder"><span class="tag">Portrait</span></div>
+              <span class="persona-chip">Tech Enthusiast</span>
+            </div>
+            <div class="t6-body">
+              <span class="t6-name">Noah W</span>
+              <span class="t6-meta">Aircraft Maintenance Engineer · Newcastle</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- REFERRAL BLOCK · Variant 3 — inline banner -->
+      <div class="rb rb-inline" style="margin-top:36px;">
+        <p>See where you fit in manufacturing</p>
+        <a class="rb-cta primary" href="quiz.html">Take the 60-second quiz →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script>
+function density(n){
+  document.getElementById('state3').classList.toggle('show', n===3);
+  document.getElementById('state11').classList.toggle('show', n===11);
+  document.getElementById('d3').classList.toggle('on', n===3);
+  document.getElementById('d11').classList.toggle('on', n===11);
+}
+</script>
+</body>
+</html>

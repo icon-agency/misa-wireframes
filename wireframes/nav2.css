@@ -1,0 +1,49 @@
+/* MISA Stage 2 — Navigation amendments (blue = Stage 2 updates)
+   1. Persistent "Find Your Fit" quiz button (header + top of menu)
+   2. Illawarra access: footer link · conditional nav item · announcement bar
+   3. Action-first mobile menu order */
+
+/* ---- Tier 3: announcement bar (time-boxed, dismissible, CMS-scheduled) ---- */
+.ann-bar{
+  background:#24548c;color:#fff;
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  padding:9px 16px;font-size:13px;font-weight:700;
+}
+.ann-bar a{color:#fff;text-decoration:underline;}
+.ann-bar button{
+  background:none;border:1.5px solid rgba(255,255,255,.6);border-radius:50%;
+  width:22px;height:22px;color:#fff;font-size:11px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex:none;
+}
+
+/* ---- Change 1: Find Your Fit button ---- */
+.nav{position:relative;}
+.nav .nav-right{display:flex;align-items:center;gap:12px;margin-left:auto;}
+.quiz-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:#24548c;color:#fff;border:1.5px solid #24548c;
+  border-radius:24px;padding:9px 20px;
+  font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;white-space:nowrap;
+}
+
+/* menu: pinned full-width quiz button above the items */
+.menu-overlay .quiz-btn-menu{
+  display:flex;align-items:center;justify-content:center;
+  background:#4a90d9;color:#fff;border-radius:28px;
+  width:min(420px,80vw);padding:16px 24px;margin-bottom:14px;
+  font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  text-decoration:none;
+}
+
+/* ---- Change 2 Tier 2: conditional Illawarra nav item ---- */
+.menu-links .conditional{
+  border:1.5px dashed #4a90d9;border-radius:12px;padding:6px 18px;
+  color:#8fb8e4 !important;
+}
+.menu-links .cond-note{
+  display:block;font-size:10px;font-weight:700;letter-spacing:.08em;
+  text-transform:none;color:#7d92ab;margin-top:4px;
+}
+
+/* ---- Tier 1: footer Illawarra link inherits footer-bottom styles ---- */

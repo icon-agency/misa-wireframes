@@ -1,0 +1,75 @@
+/* MISA Stage 2 — Universal Referral Block ("Take the Next Step")
+   One component, three sizes + FAQ micro-variant.
+   Self-contained blue styling so it can be retrofitted onto Stage 1 (grey) pages. */
+
+:root{
+  --rb-bg:#e8f1fb;
+  --rb-tint:#d7e8fa;
+  --rb-line:#4a90d9;
+  --rb-ink:#173a5e;
+  --rb-solid:#24548c;
+  --rb-muted:#4f6883;
+}
+
+.rb{border-radius:12px;}
+.rb h3{color:var(--rb-ink);text-transform:uppercase;}
+.rb .rb-note{font-size:11px;color:var(--rb-muted);}
+
+/* shared CTA styles */
+.rb .rb-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border-radius:24px;padding:13px 26px;
+  font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;
+}
+.rb .rb-cta.primary{background:var(--rb-solid);color:#fff;border:1.5px solid var(--rb-solid);}
+.rb .rb-cta.secondary{background:#fff;color:var(--rb-ink);border:1.5px solid var(--rb-solid);}
+.rb .rb-cta.tertiary{
+  background:none;border:none;padding:4px 0;
+  color:var(--rb-ink);text-decoration:underline;
+  font-size:13px;letter-spacing:0;text-transform:none;font-weight:700;
+}
+
+/* ---- Variant 1: full block (end of job detail pages) ---- */
+.rb-full{
+  background:var(--rb-bg);border:1.5px solid var(--rb-line);
+  padding:36px 32px;
+}
+.rb-full h3{font-size:24px;margin-bottom:22px;}
+.rb-full .rb-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
+.rb-full .rb-primary-card{
+  background:#fff;border:1.5px solid var(--rb-line);border-radius:10px;
+  padding:18px 20px;width:100%;max-width:560px;
+}
+.rb-full .rb-primary-card .rb-course{
+  font-size:15px;font-weight:800;color:var(--rb-ink);margin-bottom:12px;display:block;
+}
+
+/* ---- Variant 2: compact block (stories, industry pages) ---- */
+.rb-compact{
+  background:var(--rb-bg);border:1.5px solid var(--rb-line);
+  padding:24px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.rb-compact h3{font-size:19px;margin:0;}
+.rb-compact .rb-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+
+/* ---- Variant 3: inline banner (mid-page, max one per page) ---- */
+.rb-inline{
+  background:var(--rb-tint);border:1.5px solid var(--rb-line);
+  padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.rb-inline p{font-size:15px;font-weight:700;color:var(--rb-ink);margin:0;}
+
+/* ---- FAQ micro-variant: single text CTA after last FAQ item ---- */
+.rb-micro{
+  padding:16px 4px 0;font-size:14px;font-weight:700;color:var(--rb-ink);
+}
+.rb-micro a{color:var(--rb-ink);text-decoration:underline;}
+
+@media(max-width:820px){
+  .rb-compact,.rb-inline{flex-direction:column;align-items:flex-start;}
+  .rb-full .rb-cta.primary,.rb-full .rb-cta.secondary{width:100%;}
+  .rb-compact .rb-actions{width:100%;flex-direction:column;align-items:stretch;}
+}

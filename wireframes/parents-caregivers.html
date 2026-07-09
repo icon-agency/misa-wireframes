@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISA — Parents &amp; Caregivers Wireframe (Lo-fi)</title>
+<link rel="stylesheet" href="wf.css">
+<link rel="stylesheet" href="referral.css">
+<link rel="stylesheet" href="nav2.css">
+</head>
+<body>
+<div class="page">
+
+<!-- ANNOUNCEMENT BAR · Tier 3 — time-boxed, CMS-scheduled, dismiss persists for session -->
+<div class="ann-bar" id="annbar">
+  <span>Make It Manufacturing is now in the Illawarra <a href="illawarra.html">→</a></span>
+  <button aria-label="Dismiss" onclick="sessionStorage.setItem('annDismissed','1');document.getElementById('annbar').style.display='none'">✕</button>
+</div>
+<script>if(sessionStorage.getItem('annDismissed'))document.getElementById('annbar').style.display='none';</script>
+
+  <!-- HEADER -->
+  <section>
+    <nav class="nav">
+      <a class="logo" href="homepage.html">Make it Manufacturing</a>
+      <div class="nav-right">
+        <a class="quiz-btn" href="quiz.html">Find Your Fit</a>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.add('open')"><i></i><i></i><i></i></div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- FULL-TAKEOVER MENU -->
+  <div class="menu-overlay" id="menu">
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="Close menu">✕</button>
+    <div class="menu-links">
+      <a href="homepage.html">Home</a>
+      <a href="young-people.html">Young People</a>
+      <a href="parents-caregivers.html">Parents &amp; Caregivers</a>
+      <a href="teachers-career-advisers.html">Teachers &amp; Career Advisers</a>
+      <a href="careers-industries.html">Careers &amp; Industries</a>
+      <a href="take-the-next-step.html">Take the Next Step</a>
+      <a class="conditional" href="illawarra.html">Illawarra<span class="cond-note">shown only when Illawarra context is known</span></a>
+      <a href="about.html">About</a>
+      <a class="quiz-btn-menu" href="quiz.html" style="margin:14px 0 0;">Find Your Fit</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="placeholder">
+      <div class="hero-heading">Supporting their next step into<span>Manufacturing</span></div>
+      <div class="bubble hero-bubble">Careers that build Australia's future?<br><span class="fact">Fact.</span></div>
+    </div>
+  </section>
+
+  <!-- FUTURE-FOCUSED CAREERS -->
+  <section class="band tone-a">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Future-Focused Careers? Fact</h2>
+        <p class="body-text">As you support your teen to consider their future, you'll see that manufacturing offers diverse, secure and rewarding careers. Today's industry is driven by innovation and technology, which is actively changing the way we live in our communities. From improving health care with the manufacturing of personalised medicines to the adoption of robotics to increase safe and efficient ways of working, manufacturing is revolutionising and transforming our world.</p>
+      </div>
+      <div class="feature-cols">
+        <div class="feature">
+          <div class="icon circle"></div>
+          <h3>Stability &amp; Job Security</h3>
+          <p class="body-text">Manufacturing not only drives economic growth but also fosters innovation across a range of industries. As technology advances and products become increasingly complex, the need for highly trained professionals continues to rise, creating stable career pathways, competitive salaries and opportunities.</p>
+        </div>
+        <div class="feature">
+          <div class="icon triangle"></div>
+          <h3>A Variety Of Education Paths</h3>
+          <p class="body-text">Apprenticeships are just one way to enter into a career in manufacturing. Through an apprenticeship, your teen can earn their qualifications, gain experience and earn a wage. Higher education offers an alternative path to a number of careers, leading to reliable and in-demand jobs.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"></div>
+          <h3>Diverse &amp; Engaging Roles</h3>
+          <p class="body-text">From design to engineering and logistics, there's a role for most interests. Problem-solving, innovation, and creativity are attributes in demand for those seeking a career in manufacturing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="video-block">
+    <div class="placeholder" style="border-radius:0;border-left:none;border-right:none;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <div class="play">▶</div>
+        <span class="tag">Video</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPPORTUNITIES ACROSS KEY SECTORS -->
+  <section class="band tone-d" style="padding:0;">
+    <div class="split">
+      <div class="imgcol"><div class="placeholder"><span class="tag">Photo</span></div></div>
+      <div class="textcol" style="padding:56px 48px;">
+        <h2>Opportunities Across Key Sectors</h2>
+        <p class="body-text">Australia's manufacturing industry is undergoing significant transformation within sectors such as general manufacturing and engineering, process manufacturing, aerospace and laboratory operations. Strong job opportunities are emerging as a result of advanced technology adoption — like automation and digitalisation — as well as a national drive for greater sustainability and sovereign capability.</p>
+        <span class="btn">Explore Possibilities</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND YOUR FIT CAREER QUIZ -->
+  <section class="band tone-e">
+    <div class="wrap">
+      <div class="cta-tool">
+        <div class="txt">
+          <h2>Find Your Fit Career Quiz</h2>
+          <p class="body-text">Your teen can take the FIND YOUR FIT quiz, to explore jobs based on their interests – whether its hands on work, tech, science or design.</p>
+        </div>
+        <a class="btn solid" href="quiz.html">Take The Quiz</a>
+        <div class="bubble tool-bubble">Careers that solve real world problems?<br><span class="fact">Fact.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOVER CAREERS & INDUSTRIES -->
+  <section class="band tone-c">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Discover Careers &amp; Industries</h2>
+        <p class="body-text">Explore some of the available, in-demand jobs and a list of industries engaged in manufacturing.</p>
+      </div>
+      <div class="tabs" style="margin-top:34px;">
+        <span class="tab on">Careers</span>
+        <span class="tab">Industries</span>
+      </div>
+      <div style="position:relative;">
+        <div class="bubble" style="left:-8px;top:-40px;">Careers that solve world problems?<br><span class="fact">Fact.</span></div>
+        <div class="photo-grid">
+          <a class="photo-card" href="career-detail.html"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Production Manager</div></a>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Aircraft Maintenance Engineers</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Sheetmetal Worker</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Welder</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Bread Baker</div></div>
+          <div class="photo-card"><div class="placeholder"><span class="tag">Photo</span></div><div class="pc-label">Food Technologist</div></div>
+        </div>
+      </div>
+      <div class="center" style="margin-top:32px;">
+        <span class="btn">Load More</span>
+      </div>
+
+      <!-- REFERRAL BLOCK · Variant 3 — inline banner (Stage 2 · max one per page) -->
+      <div class="rb rb-inline" style="margin-top:36px;">
+        <p>Help them find a course near you</p>
+        <a class="rb-cta primary" href="course-finder.html">Search real courses →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER PATHS CTA -->
+  <section class="band tone-b">
+    <div class="wrap">
+      <div class="cta-banner">
+        <h2>Find out more about paths to a successful career in manufacturing</h2>
+        <div class="btn-row">
+          <a class="btn" href="careers-industries.html">See Career Options</a>
+          <a class="btn solid" href="take-the-next-step.html">Take The Next Step</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band tone-f faq">
+    <div class="wrap">
+      <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><span>What do jobs in manufacturing actually involve?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Is manufacturing still dirty, dangerous, or repetitive?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What kind of skills or education do I need?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Is manufacturing a good, stable career? Will I earn a decent salary?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What is the future of manufacturing with automation and robotics?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>Are there opportunities for advancement and growth?</span><span class="chev">⌄</span></div>
+        <div class="faq-item"><span>What is it actually like to work in a manufacturing facility?</span><span class="chev">⌄</span></div>
+        <div class="rb-micro">Still deciding? <a href="quiz.html">Take the quiz →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="plh" style="width:150px;height:44px;">Logo · MISA</div>
+        <div class="plh" style="width:90px;height:44px;">Logo · JSC</div>
+        <p class="ftext">Manufacturing Alliance is a Jobs and Skills Council funded by the Australian Government Department of Employment and Workplace Relations.</p>
+      </div>
+      <div class="footer-mid">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="flags">
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+            <div class="plh" style="width:34px;height:22px;">Flag</div>
+          </div>
+          <p class="ftext" style="max-width:380px;">Manufacturing Industry Skills Alliance recognises the Traditional Custodians of Country throughout Australia and recognises their connection to land, sea and community. We pay our respects to their Elders past, present and emerging and to all Aboriginal and Torres Strait Islander peoples.</p>
+        </div>
+        <div class="socials">
+          <div class="plh">f</div>
+          <div class="plh">ig</div>
+          <div class="plh">in</div>
+          <div class="plh">yt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Privacy Policy</span>
+        <span>Terms &amp; Conditions</span>
+        <a href="illawarra.html" style="color:inherit;"><u>Illawarra</u></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
